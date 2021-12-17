@@ -6,6 +6,7 @@ const port = process.env.PORT || 5000;
 const bcrypt=require('bcrypt')
 const jwt = require('jsonwebtoken')
 const path = require('path');
+const adminData = require('./src/model/adminData');
 app.use(express.static('./dist/LibraryApp'));
 
 app.use(cors());
