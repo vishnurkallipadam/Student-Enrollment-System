@@ -7,6 +7,7 @@ const bcrypt=require('bcrypt')
 const jwt = require('jsonwebtoken')
 const path = require('path');
 const adminData = require('./src/model/adminData');
+const courseData= require('./src/model/courseData')
 app.use(express.static('./dist/LibraryApp'));
 
 app.use(cors());
