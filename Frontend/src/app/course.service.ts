@@ -13,4 +13,8 @@ export class CourseService {
     
   }
 
+  getCourses(){
+    return this.http.get("http://localhost:5000/courses");
+  }
+
 }

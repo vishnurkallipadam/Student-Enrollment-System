@@ -1,0 +1,54 @@
+<section id="home" class="slider" data-stellar-background-ratio="0.5">
+    <div class="row">
+
+              <div class="owl-theme">
+                   <div class="item item-third">
+                        <div class="caption">
+                             <div class="container">
+                                  <div class="col-md-8 col-sm-12">
+                                      <h1>Our Courses</h1>
+                                  </div>
+                             </div>
+                        </div>
+                   </div>
+
+                  
+              </div>
+
+    </div>
+</section>
+
+<section id="courses" data-stellar-background-ratio="0.5">
+    <div class="container">
+         <div class="row">
+
+              <div class="col-md-12 col-sm-12">
+                   <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+                        <h4>Long Term Training ( 6 months )</h4>
+                   </div>
+              </div>
+
+
+              <div class="col-md-4 col-sm-4" *ngFor='let course of courses'>
+                   <div class="team-thumb wow fadeInUp" data-wow-delay="0.2s">
+                       <img src="../../assets/images/sigmund-FkUTlyPLhJQ-unsplash.jpg" class="img-responsive" alt="">
+                             <div class="team-hover">
+                                  <div class="team-item">
+                                       <button class="btn btn-success "><a (click)="showCourse(course)">Know More</a></button>
+            
+                                  </div>
+                             </div>
+                   </div>
+                   <div class="team-info">
+                        <h3>{{course.name}}</h3>
+                        <!-- <p>Certified Specialist in Full Stack Development </p> -->
+                   </div>
+              </div>
+
+
+
+
+              
+         </div>
+    </div>
+</section>
