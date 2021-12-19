@@ -35,6 +35,20 @@ app.get('/course/:id',function(req,res){
     })
 });
 
+// add course
+app.post('/add-course',(req,res)=>{
+    res.header("Acces-Control-Allow-Origin","*");
+    res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD"); 
+    console.log(req.body);
+    var item={
+        name : req.body.course.name,
+        details : req.body.course.details,
+        price : req.body.course.price,
+        eligibility : req.body.course.eligibility
+    }
+    let course = new courseData(item);
+    course.save();
+});
 
 
 
