@@ -15,6 +15,19 @@ app.use(express.static('./dist/LibraryApp'));
 app.use(cors());
 app.use(express.json())
 
+// get all courses
+app.get('/courses',function(req,res){
+    res.header("Acces-Control-Allow-Origin","*");
+    res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD");
+    courseData.find()
+                .then(function(courses){
+                    res.send(courses);
+                });
+});
+
+
+
+
 
 
 
