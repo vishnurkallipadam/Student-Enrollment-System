@@ -50,7 +50,15 @@ app.post('/add-course',(req,res)=>{
     course.save();
 });
 
-
+// delete course
+app.delete('/remove-course/:id',(req,res)=>{  
+    id = req.params.id;
+    courseData.findByIdAndDelete({"_id":id})
+    .then(()=>{
+        console.log('success')
+        res.send();
+    })
+});
 
 
 
