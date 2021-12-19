@@ -25,6 +25,19 @@ app.get('/courses',function(req,res){
                 });
 });
 
+// get single course using _id
+app.get('/course/:id',function(req,res){  
+    res.header("Acces-Control-Allow-Origin","*");
+    res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD"); 
+    let id=req.params.id;
+    courseData.findOne({_id:id},function(err,course){ 
+        res.send(course)
+    })
+});
+
+
+
+
 
 
 
