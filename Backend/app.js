@@ -48,6 +48,7 @@ app.post('/add-course',(req,res)=>{
     }
     let course = new courseData(item);
     course.save();
+    res.send();
 });
 
 // delete course
