@@ -496,6 +496,9 @@ section {
 .team-item h4 {
   color: #ffffff;
 }
+.team-item {
+  margin-top: -5%;
+}
 .team-info p {
   color: #bfbdbd;
   font-size: 12px;
