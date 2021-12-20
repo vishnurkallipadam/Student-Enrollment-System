@@ -6,6 +6,7 @@ const port = process.env.PORT || 5000;
 const bcrypt=require('bcrypt')
 const jwt = require('jsonwebtoken')
 const path = require('path');
+const razorpay=require('razorpay')
 const adminData = require('./src/model/adminData');
 const courseData= require('./src/model/courseData');
 const employeeData=require('./src/model/employeeData');
