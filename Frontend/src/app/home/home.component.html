@@ -66,135 +66,23 @@
                    </div>
               </div>
 
-              <div class="col-md-4 col-sm-4">
+              <div class="col-md-4 col-sm-4" *ngFor='let course of courses'>
                    <div class="team-thumb wow fadeInUp" data-wow-delay="0.2s">
                        <img src="../../assets/images/sigmund-FkUTlyPLhJQ-unsplash.jpg" class="img-responsive" alt="">
                              <div class="team-hover">
                                   <div class="team-item">
                                        <button class="btn btn-success "><a routerLink='course'>Know More</a></button>
-                                       <!-- <h4>MEAN stack - MongoDB,Express.js,Angular and Node.js</h4>  -->
-                                       <!-- <ul class="social-icon">
-                                            <li><a href="#" class="fa fa-linkedin-square"></a></li>
-                                            <li><a href="#" class="fa fa-envelope-o"></a></li>
-                                       </ul> -->
+                                       
                                   </div>
                              </div>
                    </div>
                    <div class="team-info">
-                        <h3>Full Stack Development</h3>
-                        <p>Certified Specialist in Full Stack Development </p>
+                        <h3>{{course.name}}</h3>
+                        <p>{{course.details}} </p>
                    </div>
               </div>
 
-              <div class="col-md-4 col-sm-4">
-                   <div class="team-thumb wow fadeInUp" data-wow-delay="0.4s">
-                    <img src="../../assets/images/dataanalytics.jpg" class="img-responsive" alt="">
-
-                             <div class="team-hover">
-                                  <div class="team-item">
-                                   <button class="btn btn-success "><a routerLink='course'>Know More</a></button>
-
-                                       <!-- <h4>Gathering and Analyzing Data with technology</h4>
-                                       <ul class="social-icon">
-                                            <li><a href="#" class="fa fa-instagram"></a></li>
-                                            <li><a href="#" class="fa fa-flickr"></a></li>
-                                       </ul> -->
-                                  </div>
-                             </div>
-                   </div>
-                   <div class="team-info">
-                        <h3>Data Science &amp; Analytics</h3>
-                        <p>Certified Specialist in Data Science &amp; Analytics</p>
-                   </div>
-              </div>
-
-              <div class="col-md-4 col-sm-4">
-                   <div class="team-thumb wow fadeInUp" data-wow-delay="0.6s">
-                    <img src="../../assets/images/cyber.jpg" class="img-responsive" alt="">
-
-                             <div class="team-hover">
-                                  <div class="team-item">
-                                        <button class="btn btn-success "><a routerLink='course'>Know More</a></button>
-
-                                       <!-- <h4>Protects company hardware,software and networks from cybercriminals</h4>
-                                       <ul class="social-icon">
-                                            <li><a href="#" class="fa fa-github"></a></li>
-                                            <li><a href="#" class="fa fa-google"></a></li>
-                                       </ul> -->
-                                  </div>
-                             </div>
-                   </div>
-                   <div class="team-info">
-                        <h3>Cyber Security Analyst</h3>
-                        <p>Certified Specialist in Cyber Security Analysis</p>
-                   </div>
-              </div>
-
-              <div class="col-md-4 col-sm-4">
-                <div class="team-thumb wow fadeInUp" data-wow-delay="0.2s">
-                    <img src="../../assets/images/ROBOTIC.jpg" class="img-responsive" alt="">
-
-                          <div class="team-hover">
-                               <div class="team-item">
-                                   <button class="btn btn-success "><a routerLink='course'>Know More</a></button>
-                                    
-                                    <!-- <h4>RPA is the use of software with AI and machine learning capabilities</h4> 
-                                    <ul class="social-icon">
-                                         <li><a href="#" class="fa fa-linkedin-square"></a></li>
-                                         <li><a href="#" class="fa fa-envelope-o"></a></li>
-                                    </ul> -->
-                               </div>
-                          </div>
-                </div>
-                <div class="team-info">
-                     <h3>Robotic Process Automation</h3>
-                     <p>Certified Specialist in Robotic Process Automation </p>
-                </div>
-              </div>
-
-              <div class="col-md-4 col-sm-4">
-                <div class="team-thumb wow fadeInUp" data-wow-delay="0.2s">
-                    <img src="../../assets/images/digital.jpg" class="img-responsive" alt="">
-
-                          <div class="team-hover">
-                               <div class="team-item">
-                                   <button class="btn btn-success "><a routerLink='course'>Know More</a></button>
-
-                                    <!-- <h4>Digital marketing encompasses all  marketing efforts that use an electronic device or the internet </h4> 
-                                    <ul class="social-icon">
-                                         <li><a href="#" class="fa fa-linkedin-square"></a></li>
-                                         <li><a href="#" class="fa fa-envelope-o"></a></li>
-                                    </ul> -->
-                               </div>
-                          </div>
-                </div>
-                <div class="team-info">
-                     <h3>Digital Marketing</h3>
-                     <p>Certified Specialist in Digital Marketing </p>
-                </div>
-              </div>
-
-              <div class="col-md-4 col-sm-4">
-                <div class="team-thumb wow fadeInUp" data-wow-delay="0.2s">
-                    <img src="../../assets/images/testing.jpg" class="img-responsive" alt="">
-
-                          <div class="team-hover">
-                               <div class="team-item">
-                                   <button class="btn btn-success "><a routerLink='course'>Know More</a></button>
-
-                                    <!-- <h4>Software testing is the process of evaluating and verifying that a software product</h4> 
-                                    <ul class="social-icon">
-                                         <li><a href="#" class="fa fa-linkedin-square"></a></li>
-                                         <li><a href="#" class="fa fa-envelope-o"></a></li>
-                                    </ul> -->
-                               </div>
-                          </div>
-                </div>
-                <div class="team-info">
-                     <h3>Software Testing</h3>
-                     <p>Certified Specialist in Software Testing </p>
-                </div>
-              </div>
+              
 
               
          </div>

@@ -24,8 +24,8 @@ export class CoursesComponent implements OnInit {
       this.courses=JSON.parse(JSON.stringify(data))
     })
 
-    
   }
+  
   showCourse(course:any){
     localStorage.setItem('showcourse',course._id)
     this.router.navigate(['course'])
