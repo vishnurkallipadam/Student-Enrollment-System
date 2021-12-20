@@ -7,8 +7,8 @@
                         <div class="caption">
                              <div class="container">
                                   <div class="col-md-8 col-sm-12">
-                                      <h1>Full Stack Development</h1>
-                                      <h3>MEAN stack - MongoDB,Express.js,Angular and Node.js</h3>
+                                      <h1>{{course.name}}</h1>
+                                      <!-- <h3>MEAN stack - MongoDB,Express.js,Angular and Node.js</h3> -->
                                        <!-- <a href="#team" class="section-btn btn btn-default smoothScroll">Go through our courses</a> -->
                                   </div>
                              </div>
@@ -30,15 +30,15 @@
               <div class="col-md-6 col-sm-12">
                    <div class="about-info">
                         <div class="section-title wow fadeInUp" data-wow-delay="0.2s">
-                             <h4>Build Your Website</h4>
-                             <h2>MEAN Stack Development</h2>
+                             <!-- <h4>Build Your Website</h4> -->
+                             <h2>{{course.name}}</h2>
                         </div>
 
                         <div class="wow fadeInUp" data-wow-delay="0.4s">
                             <!-- <p>ICT Academy of Kerala is a Social Enterprise created in a Public Private Partnership model (PPP) for imparting ICT skills to the youths of Kerala and improve their employability opportunities in the Industry. The Company is supported by Govt. of India , partnered by Govt. of Kerala and the IT industry.</p> -->
-                             <p>ICTAK do research and offers training programs on diverse streams,ranging from emerging technologies to life skills.
-
-                                Being a Social Enterprise, we strive to enhance the technology skills of the youth thereby embibing industry relavent skills to this</p>
+                             <p>
+                                 {{course.details}}
+                             </p>
                         </div>
                    </div>
               </div>
@@ -106,11 +106,8 @@
                             <!--FEATURE LIST START-->
                             <div class="generic_feature_list">
                                 <ul>
-                                    <li><span>2GB</span> Bandwidth</li>
-                                    <li><span>150GB</span> Storage</li>
-                                    <li><span>12</span> Accounts</li>
-                                    <li><span>7</span> Host Domain</li>
-                                    <li><span>24/7</span> Support</li>
+                                    <li><span>{{course.eligibility}}</span> </li>
+                                   
                                 </ul>
                             </div>
                             <!--//FEATURE LIST END-->
@@ -155,7 +152,7 @@
                                 <div class="generic_price_tag clearfix">	
                                     <span class="price">
                                         <span class="sign">₹</span>
-                                        <span class="currency">18,400/- </span>
+                                        <span class="currency">{{course.price}} </span>
                                     </span>
                                 </div>
                                 <!--//PRICE END-->
@@ -168,7 +165,7 @@
                             
                             <!-- BUTTON START-->
                             <div class="generic_price_btn clearfix">
-                                <a class="" href="">Sign up</a>
+                                <a class="" href="">Enroll Now</a>
                             </div>
                             <!--//BUTTON END -->
                             
