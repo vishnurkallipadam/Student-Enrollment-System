@@ -6,7 +6,7 @@
                         <div class="caption">
                              <div class="container">
                                   <div class="col-md-8 col-sm-12">
-                                      <h1>Add Course</h1>
+                                      <h1>ADD COURSE</h1>
                                   </div>
                              </div>
                         </div>
@@ -20,12 +20,12 @@
 
 
   
-  <div class="container">
+  <div class="container start">
     <div class="row">
       
       <div class="col-md-12"> 
         
-        <div class="panel">
+        <div class="panel form">
           <div class="panel-body">
             
             
@@ -35,37 +35,32 @@
                 <form method="post" (ngSubmit)="addCourse()">
               
                   <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                       <div class="form-group">
-                        <label for="first">Name of Course</label>
+                        <label for="first" style="color: white;">Name of Course</label>
                         <input type="text" [(ngModel)]="course.name" class="form-control" placeholder="Name of course" id="cname" name="name" required>
                       </div>
                     </div>
-              
-              
-        
-              
-              
                   </div>
               
               
                   <div class="row">
               
               
-                    <div class="col-md-6">
+                    <div class="col-md-12">
               
                       <div class="form-group">
-                        <label for="text">Details of Course</label>
+                        <label for="text" style="color: white;">Details of Course</label>
                         <input type="text" [(ngModel)]="course.details" class="form-control" id="details" required placeholder="Enter details of Course" name="details">
                       </div>
 
                       <div class="form-group">
-                        <label for="text">Price of Course</label>
+                        <label for="text" style="color: white;">Price of Course</label>
                         <input type="text" [(ngModel)]="course.price" class="form-control" id="details" required placeholder="Enter price of Course" name="price">
                       </div>
 
                       <div class="form-group">
-                        <label for="text">Eligibility</label>
+                        <label for="text" style="color: white;">Eligibility</label>
                         <input type="text" [(ngModel)]="course.eligibility" class="form-control" id="details" required placeholder="Enter the Eligibility" name="eligibility">
                       </div>
                     </div>
