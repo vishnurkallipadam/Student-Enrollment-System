@@ -4,6 +4,7 @@ import { CourseComponent } from './course/course.component';
 import { HomeComponent } from './home/home.component';
 import { AddCourseComponent } from './add-course/add-course.component';
 import { CoursesComponent } from './courses/courses.component';
+import { RegisterformComponent } from './registerform/registerform.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path:'courses',
     component:CoursesComponent
+  },
+  {
+    path:'enroll',
+    component:RegisterformComponent
   }
 ];
 

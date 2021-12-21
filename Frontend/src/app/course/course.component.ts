@@ -26,4 +26,11 @@ export class CourseComponent implements OnInit {
     })
   }
 
+  registerNow(course:any){
+    localStorage.setItem('registerCourse',course._id)
+    this.router.navigate(['enroll'])
+
+
+  }
+
 }
