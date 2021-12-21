@@ -21,43 +21,43 @@
     <div class="title">
       Registration Form
     </div>
-    <form method="post" (submit)="registerStudent()">
+    <form (ngSubmit)="registerStudent()">
     <div class="form">
        <div class="inputfield">
           <label>Name</label>
-          <input ([ngModel])="student.name" type="text" class="input" name="name">
+          <input [(ngModel)]="student.name" type="text" class="input" name="name">
        </div>  
         <div class="inputfield">
           <label>Email</label>
-          <input type="email" ([ngModel])="student.email" class="input" name="email">
+          <input type="email" [(ngModel)]="student.email" class="input" name="email">
        </div>  
        <div class="inputfield">
           <label>Mobile No.</label>
-          <input type="tel" ([ngModel])="student.phone" class="input" name="phone">
+          <input type="tel" [(ngModel)]="student.phone" class="input" name="phone">
        </div>  
       <div class="inputfield">
           <label>Address</label>
-          <input type="text" ([ngModel])="student.address" class="input" name="address">
+          <input type="text" [(ngModel)]="student.address" class="input" name="address">
        </div> 
         
         <div class="inputfield">
           <label>Qualification</label>
-          <input type="text" ([ngModel])="student.qualification" class="input" name="qualification">
+          <input type="text" [(ngModel)]="student.qualification" class="input" name="qualification">
        </div> 
       <div class="inputfield">
           <label>Passout Year</label>
-          <input type="number" ([ngModel])="student.passout" class="input" name="passout">
+          <input type="number" [(ngModel)]="student.passout" class="input" name="passout">
        </div> 
       <div class="inputfield">
           <label>Skills</label>
-          <input type="text" ([ngModel])="student.skillset" class="input" name="skills">
+          <input type="text" [(ngModel)]="student.skillset" class="input" name="skills">
 
        </div> 
 
        <div class="inputfield">
           <label>Employment Status</label>
           <div class="custom_select">
-            <select ([ngModel])="student.employmentStatus">
+            <select [(ngModel)]="student.employmentStatus" name="employmentStatus">
               <option value="">Select</option>
               <option value="employee">Employee</option>
               <option value="student">Student</option>
@@ -69,16 +69,18 @@
 
       <div class="inputfield">
           <label>Technology Training</label>
-          <input type="text" ([ngModel])="student.technologyTraining" class="input" name="techtraining">
+          <input type="text" [(ngModel)]="student.technologyTraining" class="input" name="techtraining">
        </div> 
 
        <div class="inputfield">
         <label>Course</label>
         <div class="custom_select">
-          <select #course (change)="courseFee(course.value)">
+          <select name="course" [(ngModel)]="student.course" #course (change)="courseFee(course.value)">
             <option selected disabled value="">Choose Course</option>
-            <option *ngFor='let course of courses' value="{{course.price}}"  >{{course.name}}</option>
-            <input ([ngModel])="student.course" type="hidden"name="id" value="{{courses._id}}">
+            <option *ngFor='let course of courses' value="{{course._id}}"  >{{course.name}}
+                  
+            </option>
+           
 
           </select>
         </div>

@@ -17,7 +17,7 @@ export class RegisterformComponent implements OnInit {
  courses=(this._id,this.name,this.details,this.price,this.eligibility)
  fees:any=''
   constructor(private courseserrvice:CourseService,private router:Router) { }
-
+  try:any=[]
   ngOnInit(): void {
     this.courseserrvice.getCourses()
     .subscribe((data)=>{
@@ -29,17 +29,21 @@ export class RegisterformComponent implements OnInit {
 
   }
   student = new studentModel('','','','','','','','','','')
-  courseFee(fee:any){
-    console.log(fee);
-    this.fees=fee
-    console.log(this.fees);
+ 
+  courseFee(id:any){
+    console.log(id);
+    this.courseserrvice.getCourse(id)
+    .subscribe((data)=>{
+      this.try=JSON.parse(JSON.stringify(data))
+      console.log(this.try.price);
+      this.fees=this.try.price
+      
+    })
     
   }
 
   registerStudent(){
-  
       console.log(this.student);
-      
       
   }
 
