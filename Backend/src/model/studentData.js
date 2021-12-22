@@ -15,7 +15,8 @@ const studentSchema= new schema({
     skillset:String,
     employmentStatus:String,
     technologyTraining:String,
-    course:String
+    course:String,
+    payment:String
 
 });
 

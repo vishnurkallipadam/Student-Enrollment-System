@@ -12,7 +12,10 @@ const courseData= require('./src/model/courseData');
 const employeeData=require('./src/model/employeeData');
 const studentData = require('./src/model/studentData')
 app.use(express.static('./dist/LibraryApp'));
-
+let instance=new razorpay({
+    key_id:'rzp_test_ZGATXfSKdjDjl0',
+    key_secret:'JlpCgDzCSpxdvfKUIofLPs6w'
+})
 app.use(cors());
 app.use(express.json())
 
@@ -62,10 +65,63 @@ app.delete('/remove-course/:id',(req,res)=>{
     })
 });
 
+app.post('/register-student',(req,res)=>{
+    res.header("Acces-Control-Allow-Origin","*");
+    res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD"); 
+    var item={
+        name:req.body.student.name,
+        email:req.body.student.email,
+        phone:req.body.student.phone,
+        address:req.body.student.address,
+        qualification:req.body.student.qualification,
+        passout:req.body.student.passout,
+        skillset:req.body.student.skillset,
+        employmentStatus:req.body.student.employmentStatus,
+        technologyTraining:req.body.student.technologyTraining,
+        course:req.body.student.course,
+        payment:"pending"
+    }
+    var fees=req.body.fees
+    console.log(fees);
+    let student = new studentData(item);
+    student.save((err,data)=>{
+        let orderid=data._id
+        console.log(orderid);
+        var options = {
+            amount: fees*100,  // amount in the smallest currency unit
+            currency: "INR",
+            receipt: ""+orderid
+          };
+          instance.orders.create(options, function(err, order) {
+            
+            if(err){
+                console.log(err);
+            }else{
+                console.log('order',order);
+                res.send(order)
+            }
+          });
 
 
+    });
+});
 
 
+app.post("/verify-payment",(req,res)=>{
+
+    let body=req.body.response.razorpay_order_id + "|" + req.body.response.razorpay_payment_id;
+   
+     var crypto = require("crypto");
+     var expectedSignature = crypto.createHmac('sha256', 'JlpCgDzCSpxdvfKUIofLPs6w')
+                                     .update(body.toString())
+                                     .digest('hex');
+                                     console.log("sig received " ,req.body.response.razorpay_signature);
+                                     console.log("sig generated " ,expectedSignature);
+     var response = {"signatureIsValid":"false"}
+     if(expectedSignature === req.body.response.razorpay_signature)
+      response={"signatureIsValid":"true"}
+         res.send(response);
+     });
 
 
 
