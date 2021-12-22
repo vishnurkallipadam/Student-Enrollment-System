@@ -22,7 +22,8 @@ export class CourseComponent implements OnInit {
     let id = localStorage.getItem('showcourse')
     this.courseService.getCourse(id)
     .subscribe((data)=>{
-      this.course=JSON.parse(JSON.stringify(data))
+      this.course=JSON.parse(JSON.stringify(data));
+      console.log(data);
     })
   }
 
