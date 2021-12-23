@@ -8,8 +8,11 @@ const schema = mongoose.Schema;
 const studentSchema= new schema({   
     name:String,
     email:String,
+    password:String,
     phone:String,
     address:String,
+    district:String,
+    state:String,
     qualification:String,
     passout:String,
     skillset:String,

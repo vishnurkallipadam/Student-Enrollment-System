@@ -1,5 +1,5 @@
 .footer-dark {
-  padding: 5px 0;
+  padding: 1px 0;
   color: #f0f9ff;
   background-color: #282d32;
 }
@@ -39,7 +39,9 @@
 .footer-dark .item.text {
   margin-bottom: 36px;
 }
-
+.footer-dark .item.text h3 {
+  color: grey;
+}
 @media (max-width: 767px) {
   .footer-dark .item.text {
     margin-bottom: 0;

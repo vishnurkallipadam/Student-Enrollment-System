@@ -31,7 +31,7 @@ export class RegisterformComponent implements OnInit {
     
 
   }
-  student = new studentModel('','','','','','','','','','')
+  student = new studentModel('','','','','','','','','','','')
  
   courseFee(id:any){
     console.log(id);
