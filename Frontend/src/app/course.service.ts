@@ -21,4 +21,8 @@ export class CourseService {
     return this.http.get("http://localhost:5000/course/"+id);
   }
 
+  removeCourse(id:any){
+    return this.http.delete("http://localhost:5000/remove-course/"+id)
+  }
+
 }

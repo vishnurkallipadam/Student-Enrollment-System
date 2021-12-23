@@ -31,4 +31,13 @@ export class CoursesComponent implements OnInit {
     this.router.navigate(['course'])
   }
 
+  deleteCourse(course:any){
+    console.log(course);
+    this.courseService.removeCourse(course._id)
+    .subscribe((data) => {
+      this.router.navigate(['courses'])
+    })
+  }
+  editCourse(course:any){}
+
 }
