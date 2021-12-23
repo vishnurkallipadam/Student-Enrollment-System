@@ -66,20 +66,25 @@
                    </div>
               </div>
 
-              <div class="col-md-4 col-sm-4" *ngFor='let course of courses'>
-                   <div class="team-thumb wow fadeInUp" data-wow-delay="0.2s">
-                       <img src="../../assets/images/sigmund-FkUTlyPLhJQ-unsplash.jpg" class="img-responsive" alt="">
-                             <div class="team-hover">
-                                  <div class="team-item">
-                                       <button class="btn btn-success "><a routerLink='course'>Know More</a></button>
-                                       
-                                  </div>
-                             </div>
-                   </div>
-                   <div class="team-info">
-                        <h3>{{course.name}}</h3>
-                        <p>{{course.details}} </p>
-                   </div>
+              <div class="col-md-4 col-sm-4" *ngFor='let course of courses; let i=index' >
+                   <div *ngIf='i<3'>
+
+                    
+                    <div class="team-thumb wow fadeInUp" data-wow-delay="0.2s" >
+                         <img src="../../assets/images/sigmund-FkUTlyPLhJQ-unsplash.jpg" class="img-responsive" alt="">
+                              <div class="team-hover">
+                                   <div class="team-item">
+                                        <button class="btn btn-success "><a routerLink='course'>Know More</a></button>
+                                        
+                                   </div>
+                              </div>
+                    </div>
+                    <div class="team-info">
+                         <h3>{{course.name}}</h3>
+                         <p>{{course.details}} </p>
+                    </div>
+
+                    </div>
               </div>
 
               

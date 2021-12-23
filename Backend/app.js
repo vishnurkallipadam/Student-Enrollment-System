@@ -46,6 +46,7 @@ app.post('/add-course',(req,res)=>{
     console.log(req.body);
     var item={
         name : req.body.course.name,
+        certification : req.body.course.certification,
         details : req.body.course.details,
         price : req.body.course.price,
         eligibility : req.body.course.eligibility
@@ -65,7 +66,7 @@ app.delete('/remove-course/:id',(req,res)=>{
     })
 });
 
-app.post('/register-student',(req,res)=>{
+app.post('/register-student',async (req,res)=>{
     res.header("Acces-Control-Allow-Origin","*");
     res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD"); 
     var item={
@@ -73,6 +74,9 @@ app.post('/register-student',(req,res)=>{
         email:req.body.student.email,
         phone:req.body.student.phone,
         address:req.body.student.address,
+        district:req.body.student.district,
+        state:req.body.student.state,
+        password:req.body.student.password,
         qualification:req.body.student.qualification,
         passout:req.body.student.passout,
         skillset:req.body.student.skillset,
@@ -81,6 +85,7 @@ app.post('/register-student',(req,res)=>{
         course:req.body.student.course,
         payment:"pending"
     }
+    item.password=await bcrypt.hash(item.password,10)
     var fees=req.body.fees
     console.log(fees);
     let student = new studentData(item);
