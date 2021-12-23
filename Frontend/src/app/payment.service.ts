@@ -23,8 +23,10 @@ export class PaymentService {
 
   }
 
-  verifyPayment(response:any){
-    return this.http.post("http://localhost:5000/verify-payment",{"response":response})
+  verifyPayment(response:any,id:any){
+    console.log(id);
+    
+    return this.http.post("http://localhost:5000/verify-payment",{"response":response,id})
 
   }
 

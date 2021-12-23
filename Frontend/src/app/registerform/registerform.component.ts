@@ -84,7 +84,7 @@ export class RegisterformComponent implements OnInit {
   paymentResponse:any=[]
   handle_response(_response: any){
     console.log(_response);
-    this.paymenetService.verifyPayment(_response)
+    this.paymenetService.verifyPayment(_response,this.order.receipt)
     .subscribe((success)=>{
       console.log(success);
       this.paymentResponse=JSON.parse(JSON.stringify(success))

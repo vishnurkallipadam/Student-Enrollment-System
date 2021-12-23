@@ -120,7 +120,16 @@ app.post("/verify-payment",(req,res)=>{
      var response = {"signatureIsValid":"false"}
      if(expectedSignature === req.body.response.razorpay_signature)
       response={"signatureIsValid":"true"}
-         res.send(response);
+        console.log(req.body.id);
+        studentData.updateOne(
+            { 
+                _id: req.body.id 
+            },
+            {
+                $set: { 'payment': 'Success'} 
+            }).then((data)=>{
+                res.send(response);
+            })
      });
 
 
