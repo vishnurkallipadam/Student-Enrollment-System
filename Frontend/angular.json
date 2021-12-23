@@ -34,7 +34,8 @@
               "src/assets/css/magnific-popup.css",
              
               "src/assets/css/owl.theme.default.min.css",
-              "src/assets/css/templatemo-style.css"
+              "src/assets/css/templatemo-style.css",
+              "node_modules/aos/dist/aos.css"
             ],
             "scripts": [
               "src/assets/js/bootstrap.min.js",
@@ -44,7 +45,8 @@
               "src/assets/js/jquery.stellar.min.js",
               "src/assets/js/owl.carousel.min.js",
               "src/assets/js/smoothscroll.js",
-              "src/assets/js/wow.min.js"
+              "src/assets/js/wow.min.js",
+              "node_modules/aos/dist/aos.js"
             ]
           },
           "configurations": {
