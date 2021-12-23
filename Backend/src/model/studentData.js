@@ -19,7 +19,8 @@ const studentSchema= new schema({
     employmentStatus:String,
     technologyTraining:String,
     course:String,
-    payment:String
+    payment:String,
+    id:String
 
 });
 

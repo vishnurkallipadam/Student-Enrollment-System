@@ -10,7 +10,7 @@ import { CourseService } from '../course.service';
 })
 export class AddCourseComponent implements OnInit {
 
-  course=new courseModel('','','','','')
+  course=new courseModel('','','','','','')
 
   constructor(private courseService:CourseService,private router:Router) { }
 

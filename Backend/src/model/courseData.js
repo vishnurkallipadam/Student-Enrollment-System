@@ -11,7 +11,9 @@ const courseSchema= new schema({
     certification: String,
     details: String,
     price:String,
-    eligibility:String
+    eligibility:String,
+    count:Number,
+    code:String
 
 });
 

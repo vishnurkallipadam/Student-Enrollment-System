@@ -5,6 +5,7 @@ export class courseModel {
         public details:any='', 
         public price:any='',
         public eligibility:any='',
+        public code:any=''
        
         ){}
 }
