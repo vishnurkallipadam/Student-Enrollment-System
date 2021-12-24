@@ -8,7 +8,12 @@ import { RegisterformComponent } from './registerform/registerform.component';
 
 const routes: Routes = [
   {
-    path:'',
+    path:"",
+    redirectTo:'/home',
+    pathMatch:'full'
+  },
+  {
+    path:'home',
     component:HomeComponent
   },
   {
@@ -27,6 +32,7 @@ const routes: Routes = [
     path:'enroll',
     component:RegisterformComponent
   }
+  
 ];
 
 @NgModule({
