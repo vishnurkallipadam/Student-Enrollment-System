@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const nodemailer=require('nodemailer')
+const {google}=require('googleapis')
 const port = process.env.PORT || 5000;
 
 const bcrypt=require('bcrypt')
@@ -10,7 +12,8 @@ const razorpay=require('razorpay')
 const adminData = require('./src/model/adminData');
 const courseData= require('./src/model/courseData');
 const employeeData=require('./src/model/employeeData');
-const studentData = require('./src/model/studentData')
+const studentData = require('./src/model/studentData');
+const { oauth2 } = require('googleapis/build/src/apis/oauth2');
 app.use(express.static('./dist/LibraryApp'));
 let instance=new razorpay({
     key_id:'rzp_test_ZGATXfSKdjDjl0',
@@ -18,6 +21,47 @@ let instance=new razorpay({
 })
 app.use(cors());
 app.use(express.json())
+
+const CLIENT_ID='358879111934-lldho3noupbpkclh30g3iv06t8ri0m64.apps.googleusercontent.com'
+const CLIENT_SECRET='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'
+const REDIRECT_URI='https://developers.google.com/oauthplayground'
+const REFRESH_TOKEN='1//04YjoTW1pK31aCgYIARAAGAQSNwF-L9IrCq-LYDWmQMbF3mWMAiYDsnMNw_NsclAfcLxX6i8ziIE9Z2m7AbdZxxdGYkrLItyZx2s'
+
+const oAuth2Client=new google.auth.OAuth2(CLIENT_ID,CLIENT_SECRET,REDIRECT_URI)
+oAuth2Client.setCredentials({refresh_token:REFRESH_TOKEN})
+
+async function sendEmail(data){
+    console.log("course Name :"+data.courseName);
+    try{
+        const accessToken=await oAuth2Client.getAccessToken()
+          let transporter = nodemailer.createTransport({
+            host: 'smtp.gmail.com',
+            secure: true,
+            auth: {
+                type: 'OAuth2',
+                user: 'creationzv@gmail.com',
+                clientId: CLIENT_ID,
+                clientSecret: CLIENT_SECRET,
+                refreshToken: REFRESH_TOKEN,
+                accessToken:accessToken
+            }
+        });
+
+          const mailOptions={
+              from:'ICT Academy Kerala <creationzv@gmail.com>',
+              to:data.studentMail,
+              subject:'COURSE ENROLLED SUCCESSFULLY',
+              text:`YOU HAVE BEEN SUCCESSFULLY ENROLLED TO ${data.courseName} . YOUR ID IS ${data.studentid}` 
+
+          }
+
+          const result =  await transporter.sendMail(mailOptions)
+          return result
+
+    }catch(error){
+        return error
+    }
+}
 
 // get all courses
 app.get('/courses',function(req,res){
@@ -143,6 +187,24 @@ app.post("/verify-payment",(req,res)=>{
      if(expectedSignature === req.body.response.razorpay_signature)
       response={"signatureIsValid":"true"}
         console.log(req.body.id);
+        let data={
+            studentId:'',
+            courseName:'',
+            studentMail:''
+        }
+        studentData.findOne({_id:req.body.id},(err,student)=>{
+            data.studentid=student.id
+            data.studentMail=student.email
+            courseData.findOne({_id:student.course},(err,course)=>{
+                data.courseName=course.name
+                console.log("courseName from db:"+data.courseName);
+                sendEmail(data).then((res)=>{
+                    console.log(res);
+                    
+                    
+                })
+            })
+        })
         studentData.updateOne(
             { 
                 _id: req.body.id 
