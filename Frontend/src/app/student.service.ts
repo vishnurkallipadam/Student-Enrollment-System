@@ -11,4 +11,8 @@ export class StudentService {
   registerStudent(data:any,fees:any){
     return this.http.post("http://localhost:5000/register-student",{"student":data,fees})
   }
+
+  getStudents(){
+    return this.http.get("http://localhost:5000/students");
+  }
 }

@@ -10,7 +10,6 @@ span,
 applet,
 object,
 iframe,
-h1,
 h2,
 h3,
 h4,
@@ -181,13 +180,12 @@ body {
   color: #fff;
 }
 
-.student-list {
-}
+
 
 .student-item {
-  margin: 0 0 20px 0;
-  padding: 0 0 20px 0;
-  border-bottom: 1px solid #eaeaea;
+  margin: 0 5px 20px 0;
+  padding: 0 5px 20px 0;
+  border-bottom: 1px solid #000000;
 }
 
 .student-details {
@@ -228,9 +226,9 @@ body {
 }
 
 .student-item:last-child {
-  margin: 0;
-  padding: 0;
-  border-bottom: none;
+  margin: 2;
+  padding: 2;
+  border-bottom: 1px solid #bebebe;
 }
 
 .pagination {
