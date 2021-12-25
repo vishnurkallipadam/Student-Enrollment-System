@@ -74,7 +74,7 @@
                          <img src="../../assets/images/sigmund-FkUTlyPLhJQ-unsplash.jpg" class="img-responsive" alt="">
                               <div class="team-hover">
                                    <div class="team-item">
-                                        <button class="btn btn-success "><a routerLink='course'>Know More</a></button>
+                                        <button class="btn btn-success "><a (click)="showCourse(course)">Know More</a></button>
                                         
                                    </div>
                               </div>
@@ -86,12 +86,12 @@
 
                     </div>
               </div>
+            </div>
 
-              
-
-              
-         </div>
     </div>
+    <div class="container">
+         <a routerLink="/courses"><button class="btn btn-primary">Show More</button></a>
+     </div>
 </section>
 
 

@@ -25,4 +25,8 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  showCourse(course:any){
+    localStorage.setItem('showcourse',course._id)
+    this.router.navigate(['course'])
+  }
 }
