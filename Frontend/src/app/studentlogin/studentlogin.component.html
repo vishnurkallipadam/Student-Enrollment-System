@@ -1,0 +1,17 @@
+<div class="login-page">
+    <div class="form">
+      <form class="login-form"  #userlogin='ngForm'>
+        <input type="email" placeholder="email" name="uname"  required />
+        <input type="password" placeholder="password" name="password"  required/>
+              <select  name="role">
+                <option value="">Select</option>
+                <option value="employee">Employee</option>
+                <option value="student">Student</option>
+  
+              </select>
+
+        <button [disabled]='userlogin.form.invalid'>login</button>
+        
+      </form>
+    </div>
+  </div>

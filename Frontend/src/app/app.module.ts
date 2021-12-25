@@ -13,6 +13,9 @@ import { CoursesComponent } from './courses/courses.component';
 import { RegisterformComponent } from './registerform/registerform.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { StudentsComponent } from './students/students.component';
+import { LoginComponent } from './login/login.component';
+import { StudentloginComponent } from './studentlogin/studentlogin.component';
+import { EmpregisterComponent } from './empregister/empregister.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { StudentsComponent } from './students/students.component';
     CoursesComponent,
     RegisterformComponent,
     MyprofileComponent,
-    StudentsComponent
+    StudentsComponent,
+    LoginComponent,
+    StudentloginComponent,
+    EmpregisterComponent
   ],
   imports: [
     BrowserModule,

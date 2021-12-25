@@ -6,6 +6,9 @@ import { AddCourseComponent } from './add-course/add-course.component';
 import { CoursesComponent } from './courses/courses.component';
 import { RegisterformComponent } from './registerform/registerform.component';
 import { StudentsComponent } from './students/students.component';
+import { LoginComponent } from './login/login.component';
+import { StudentloginComponent } from './studentlogin/studentlogin.component';
+import { EmpregisterComponent } from './empregister/empregister.component';
 
 const routes: Routes = [
   {
@@ -36,6 +39,20 @@ const routes: Routes = [
   {
     path:'students',
     component:StudentsComponent
+  },
+  {
+    path:'login',
+    component:LoginComponent,
+    children:[
+      {
+        path:'studentlogin',
+        component:StudentloginComponent
+      },
+      {
+        path:'employeesignup',
+        component:EmpregisterComponent
+      }
+    ]
   }
   
 ];

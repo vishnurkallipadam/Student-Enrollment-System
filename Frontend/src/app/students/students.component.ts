@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { studentModel } from '../registerform/student.model';
 import { StudentService } from '../student.service';
 
@@ -9,7 +10,7 @@ import { StudentService } from '../student.service';
 })
 export class StudentsComponent implements OnInit {
 
-  constructor(private studentService:StudentService) { }
+  constructor(private studentService:StudentService,private router:Router) { }
   name:any=''
   id:any=''
   email:any=''
@@ -24,6 +25,8 @@ export class StudentsComponent implements OnInit {
   }
 
   showStudent(student:any){
+    localStorage.setItem('showstudent',student._id)
+    this.router.navigate([''])
     
   }
 

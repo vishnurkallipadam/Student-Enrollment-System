@@ -1,0 +1,30 @@
+<div class="wrapper">
+    <div class="title">
+      Registration Form
+    </div>
+    <form  #studentReg='ngForm'>
+    <div class="form">
+       <div class="inputfield">
+          <label>Name</label>
+          <input  type="text" class="input" name="name" required>
+       </div>  
+        <div class="inputfield">
+          <label>Email</label>
+          <input type="email" class="input" name="email" required>
+       </div>  
+       <div class="inputfield">
+         <label>Password</label>
+         <input type="password" class="input" name="password" required>
+      </div> 
+      <div class="inputfield">
+          <label>Role</label>
+          <input type="text" class="input" name="role" required>
+          
+       </div>
+       
+      <div class="inputfield">
+         <button type="submit" class="btn btn-primary" [disabled]='studentReg.form.invalid'>Register</button>
+      </div>
+    </div>
+   </form>
+</div>
