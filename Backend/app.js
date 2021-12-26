@@ -121,55 +121,55 @@ app.post('/register-student',async (req,res)=>{
         },
         {
             $inc: { count: 1 } 
-        }).then((res)=>{
-            console.log(res);
-        })
-    courseData.findOne({_id:req.body.student.course}, async function(err,course){ 
-        console.log(course.code);
-        console.log(course.count);
-        var item={
-            name:req.body.student.name,
-            email:req.body.student.email,
-            phone:req.body.student.phone,
-            address:req.body.student.address,
-            district:req.body.student.district,
-            state:req.body.student.state,
-            password:req.body.student.password,
-            qualification:req.body.student.qualification,
-            passout:req.body.student.passout,
-            skillset:req.body.student.skillset,
-            employmentStatus:req.body.student.employmentStatus,
-            technologyTraining:req.body.student.technologyTraining,
-            course:req.body.student.course,
-            payment:"pending",
-            id:`${course.code}${course.count}`
-        }
-        item.password=await bcrypt.hash(item.password,10)
-        var fees=req.body.fees
-        console.log(fees);
-        let student = new studentData(item);
-        student.save((err,data)=>{
-            let orderid=data._id
-            console.log(orderid);
-            var options = {
-                amount: fees*100,  // amount in the smallest currency unit
-                currency: "INR",
-                receipt: ""+orderid
-              };
-              instance.orders.create(options, function(err, order) {
-                
-                if(err){
-                    console.log(err);
-                }else{
-                    console.log('order',order);
-                    res.send(order)
+        }).then((response)=>{
+            console.log(response);
+            courseData.findOne({_id:req.body.student.course}, async function(err,course){ 
+                console.log(course.code);
+                console.log(course.count);
+                var item={
+                    name:req.body.student.name,
+                    email:req.body.student.email,
+                    phone:req.body.student.phone,
+                    address:req.body.student.address,
+                    district:req.body.student.district,
+                    state:req.body.student.state,
+                    password:req.body.student.password,
+                    qualification:req.body.student.qualification,
+                    passout:req.body.student.passout,
+                    skillset:req.body.student.skillset,
+                    employmentStatus:req.body.student.employmentStatus,
+                    technologyTraining:req.body.student.technologyTraining,
+                    course:req.body.student.course,
+                    payment:"pending",
+                    id:`${course.code}${course.count}`
                 }
-              });
-    
-    
-        });
-        
-    })
+                item.password=await bcrypt.hash(item.password,10)
+                var fees=req.body.fees
+                console.log(fees);
+                let student = new studentData(item);
+                student.save((err,data)=>{
+                    let orderid=data._id
+                    console.log(orderid);
+                    var options = {
+                        amount: fees*100,  // amount in the smallest currency unit
+                        currency: "INR",
+                        receipt: ""+orderid
+                      };
+                      instance.orders.create(options, function(err, order) {
+                        
+                        if(err){
+                            console.log(err);
+                        }else{
+                            console.log('order',order);
+                            res.send(order)
+                        }
+                      });
+            
+            
+                });
+                
+            })
+        })
 });
 
 
