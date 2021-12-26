@@ -227,4 +227,96 @@ app.get('/students',function(req,res){
                 });
 });
 
+app.post('/studentLogin',(req,res)=>{
+    res.header("Acces-Control-Allow-Origin","*");
+    res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD");
+
+    studentData.findOne({username:req.body.student.email},(err,student)=>{
+        if(student){
+            bcrypt.compare(req.body.student.password,student.password)
+            .then((response)=>{
+                if(response){
+                    console.log("student");
+                    let payload = {subject: req.body.student.email+req.body.student.password}
+                    let token = jwt.sign(payload, 'studentKey')
+                    res.status(200).send({token,role:'student',id:student._id})
+                   
+                }else{
+                    res.status(401).send('Invalid Student Password')
+                }
+            })   
+        }else{
+            res.status(401).send('Invalid credential')
+        }
+    })
+
+
+})
+
+app.post('/adminLogin',async(req,res)=>{
+    console.log("adminlogin");
+    res.header("Acces-Control-Allow-Origin","*");
+    res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD");
+    adminData.findOne({username:req.body.admin.email},(err,admin)=>{
+        if(admin){
+            bcrypt.compare(req.body.admin.password,admin.password)
+            .then((response)=>{
+                if(response){
+                    console.log("admin");
+                    let payload = {subject: req.body.admin.email+req.body.admin.password}
+                    let token = jwt.sign(payload, 'adminKey')
+                    res.status(200).send({token,role:'admin'})
+                   
+                }else{
+                    res.status(401).send('Invalid Admin Password')
+                }
+            })   
+        }else{
+            res.status(401).send('Invalid credential')
+        }
+    })
+
+})
+
+app.post('/employeeLogin',(req,res)=>{
+    res.header("Acces-Control-Allow-Origin","*");
+    res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD");
+    employeeData.findOne({username:req.body.employee.email},(err,employee)=>{
+        if(employee){
+            bcrypt.compare(req.body.employee.password,employee.password)
+            .then((response)=>{
+                if(response){
+                    console.log("employee");
+                    let payload = {subject: req.body.employee.email+req.body.employee.password}
+                    let token = jwt.sign(payload, 'employeeKey')
+                    res.status(200).send({token,role:'employee',id:employee._id})
+                   
+                }else{
+                    res.status(401).send('Invalid Employee Password')
+                }
+            })   
+        }else{
+            res.status(401).send('Invalid credential')
+        }
+    })
+
+})
+
+app.post('/employeeRegister',async(req,res)=>{
+    res.header("Acces-Control-Allow-Origin","*");
+    res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD");
+    console.log(req.body);
+    data={
+        name:req.body.employee.name,
+        email:req.body.employee.email,
+        password:req.body.employee.password,
+        role:req.body.employee.role
+    }
+    data.password= await bcrypt.hash(data.password,10)
+    let employee = new employeeData(data)
+    employee.save()
+    res.send()
+    
+})
+
 app.listen(port,()=>{console.log("server Ready at"+port)});
