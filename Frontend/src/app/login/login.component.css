@@ -1,16 +1,16 @@
-.secondNav{
-    width: 98%;
-    height: 50px;
-    color: white;
-    background-color: rgb(235, 235, 235);
-    padding: 1rem;
-    margin-left: 1rem;
+.secondNav {
+  width: 98%;
+  height: 50px;
+  color: white;
+  background-color: rgb(235, 235, 235);
+  padding: 1rem;
+  margin-left: -1%;
 }
 
-.secondNav a{
-    padding: 1rem;
-    
+.secondNav a {
+  padding: 1rem;
+  margin-right: 8px;
 }
 .secondNav a:hover {
-    color:rgb(150, 150, 150);
-  }
+  color: rgb(150, 150, 150);
+}

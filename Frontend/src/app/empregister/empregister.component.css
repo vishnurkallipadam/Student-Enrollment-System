@@ -10,13 +10,16 @@ body {
   background: #1f5673;
   padding: 0 10px;
 }
+.reg {
+  padding: 30px;
+}
 .wrapper {
   max-width: 500px;
   width: 100%;
-  background: #fff;
-  margin: 50px auto;
+  background: rgb(248, 250, 250);
+  margin: 10px auto;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.125);
-  padding: 30px;
+  padding: 30px 30px;
 }
 
 .wrapper .title {
