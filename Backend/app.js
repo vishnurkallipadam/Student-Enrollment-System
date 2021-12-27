@@ -352,6 +352,12 @@ app.delete('/reject-employee/:id',(req,res)=>{
     })
 });
 
+app.get('/employees',(req,res)=>{
+    employeeData.find({status:"approved"})
+    .then((data)=>{
+        res.send(data)
+    })
+})
 
 
 app.listen(port,()=>{console.log("server Ready at"+port)});

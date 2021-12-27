@@ -17,6 +17,7 @@ import { LoginComponent } from './login/login.component';
 import { StudentloginComponent } from './studentlogin/studentlogin.component';
 import { EmpregisterComponent } from './empregister/empregister.component';
 import { EmployeeapprovalComponent } from './employeeapproval/employeeapproval.component';
+import { EmployeesComponent } from './employees/employees.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { EmployeeapprovalComponent } from './employeeapproval/employeeapproval.c
     LoginComponent,
     StudentloginComponent,
     EmpregisterComponent,
-    EmployeeapprovalComponent
+    EmployeeapprovalComponent,
+    EmployeesComponent
   ],
   imports: [
     BrowserModule,
