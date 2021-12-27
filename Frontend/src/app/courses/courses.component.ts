@@ -35,7 +35,7 @@ export class CoursesComponent implements OnInit {
     console.log(course);
     this.courseService.removeCourse(course._id)
     .subscribe((data) => {
-      this.router.navigate(['courses'])
+      this.ngOnInit()
     })
   }
   editCourse(course:any){}
