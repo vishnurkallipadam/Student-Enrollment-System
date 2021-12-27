@@ -231,7 +231,7 @@ app.post('/studentLogin',(req,res)=>{
     res.header("Acces-Control-Allow-Origin","*");
     res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD");
 
-    studentData.findOne({username:req.body.student.email},(err,student)=>{
+    studentData.findOne({username:req.body.student.email,payment:'Success'},(err,student)=>{
         if(student){
             bcrypt.compare(req.body.student.password,student.password)
             .then((response)=>{
@@ -281,7 +281,7 @@ app.post('/adminLogin',async(req,res)=>{
 app.post('/employeeLogin',(req,res)=>{
     res.header("Acces-Control-Allow-Origin","*");
     res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD");
-    employeeData.findOne({username:req.body.employee.email},(err,employee)=>{
+    employeeData.findOne({username:req.body.employee.email,status:"approved"},(err,employee)=>{
         if(employee){
             bcrypt.compare(req.body.employee.password,employee.password)
             .then((response)=>{
@@ -292,10 +292,12 @@ app.post('/employeeLogin',(req,res)=>{
                     res.status(200).send({token,role:'employee',id:employee._id})
                    
                 }else{
+                    console.log("Invalid Employee Password");
                     res.status(401).send('Invalid Employee Password')
                 }
             })   
         }else{
+            console.log("Invalid credential");
             res.status(401).send('Invalid credential')
         }
     })
@@ -310,13 +312,46 @@ app.post('/employeeRegister',async(req,res)=>{
         name:req.body.employee.name,
         email:req.body.employee.email,
         password:req.body.employee.password,
-        role:req.body.employee.role
+        role:req.body.employee.role,
+        status:"pending"
     }
     data.password= await bcrypt.hash(data.password,10)
     let employee = new employeeData(data)
     employee.save()
     res.send()
-    
 })
+
+app.get('/pending-employee',(req,res)=>{
+    res.header("Acces-Control-Allow-Origin","*");
+    res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD");
+    employeeData.find({status:'pending'}).then((data)=>{
+        res.send(data)
+    })
+})
+
+app.post('/approve-employee',(req,res)=>{
+    res.header("Acces-Control-Allow-Origin","*");
+    res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD");
+    employeeData.updateOne(
+        { 
+            _id: req.body.id 
+        },
+        {
+            $set: { 'status': 'approved'} 
+        }).then((data)=>{
+            res.send();
+        })
+})
+
+app.delete('/reject-employee/:id',(req,res)=>{  
+    id = req.params.id;
+    employeeData.findByIdAndDelete({"_id":id})
+    .then(()=>{
+        console.log('success')
+        res.send();
+    })
+});
+
+
 
 app.listen(port,()=>{console.log("server Ready at"+port)});

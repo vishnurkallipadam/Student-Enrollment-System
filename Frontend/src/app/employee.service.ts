@@ -14,4 +14,17 @@ export class EmployeeService {
     
   }
 
+  getPengingEmployee(){
+    return this.http.get("http://localhost:5000/pending-employee")
+
+  }
+
+  approveEmployee(id:any){
+    return this.http.post("http://localhost:5000/approve-employee",{"id":id})
+  }
+
+  rejectEmployee(id:any){
+    return this.http.delete("http://localhost:5000/reject-employee/"+id)
+  }
+
 }

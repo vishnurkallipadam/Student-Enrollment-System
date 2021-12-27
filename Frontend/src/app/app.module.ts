@@ -16,6 +16,7 @@ import { StudentsComponent } from './students/students.component';
 import { LoginComponent } from './login/login.component';
 import { StudentloginComponent } from './studentlogin/studentlogin.component';
 import { EmpregisterComponent } from './empregister/empregister.component';
+import { EmployeeapprovalComponent } from './employeeapproval/employeeapproval.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { EmpregisterComponent } from './empregister/empregister.component';
     StudentsComponent,
     LoginComponent,
     StudentloginComponent,
-    EmpregisterComponent
+    EmpregisterComponent,
+    EmployeeapprovalComponent
   ],
   imports: [
     BrowserModule,

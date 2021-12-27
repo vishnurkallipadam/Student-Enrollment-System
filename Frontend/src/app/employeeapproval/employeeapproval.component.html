@@ -1,0 +1,39 @@
+<section id="home" class="slider" data-stellar-background-ratio="0.5">
+    <div class="row">
+
+              <div class="owl-theme">
+                   <div class="item item-third">
+                        <div class="caption">
+                             <div class="container">
+                                  <div class="col-md-8 col-sm-12">
+                                      <h1>Employee Approval</h1>
+                                  </div>
+                             </div>
+                        </div>
+                   </div>
+
+                  
+              </div>
+
+    </div>
+</section>
+<div class="page">
+     <div class="page-header cf">
+       <h2>PENDING LIST</h2>
+     </div>
+     <ul class="student-list" *ngFor='let employee of employees' >
+       <li class="student-item cf">
+           <div class="student-details">
+               <img class="avatar" src="https://randomuser.me/api/portraits/thumb/women/67.jpg">
+               <h3>{{employee.name}}</h3>
+               <span class="email">{{employee.role}}</span><br>
+               <span class="email">{{employee.email}}</span>
+           </div>
+           <div class="joined-details">
+                  <button (click)="approveEmployee(employee)" class="btn btn-success">Approve</button>
+                  <button (click)="rejectEmployee(employee)" class="btn btn-danger">Reject</button>
+
+          </div>
+       </li>
+     </ul>
+   </div>

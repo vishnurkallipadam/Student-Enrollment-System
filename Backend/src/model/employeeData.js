@@ -9,7 +9,8 @@ const employeeSchema= new schema({
     name: String,
     role:String,
     email:String,
-    password:String
+    password:String,
+    status:String
 });
 
 // model
