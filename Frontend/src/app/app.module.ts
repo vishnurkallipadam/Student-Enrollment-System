@@ -18,6 +18,8 @@ import { StudentloginComponent } from './studentlogin/studentlogin.component';
 import { EmpregisterComponent } from './empregister/empregister.component';
 import { EmployeeapprovalComponent } from './employeeapproval/employeeapproval.component';
 import { EmployeesComponent } from './employees/employees.component';
+import { SearchComponent } from './search/search.component';
+import { SearchFilterPipe } from './search-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { EmployeesComponent } from './employees/employees.component';
     StudentloginComponent,
     EmpregisterComponent,
     EmployeeapprovalComponent,
-    EmployeesComponent
+    EmployeesComponent,
+    SearchComponent,
+    SearchFilterPipe
   ],
   imports: [
     BrowserModule,

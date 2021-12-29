@@ -359,5 +359,14 @@ app.get('/employees',(req,res)=>{
     })
 })
 
+app.get('/search-student',(req,res)=>{
+    res.header("Acces-Control-Allow-Origin","*");
+    res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD");
+    studentData.find({payment:'Success'})
+                .then(function(student){
+                    res.send(student);
+                });
+
+})
 
 app.listen(port,()=>{console.log("server Ready at"+port)});
