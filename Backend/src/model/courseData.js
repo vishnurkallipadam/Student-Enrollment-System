@@ -13,7 +13,8 @@ const courseSchema= new schema({
     price:String,
     eligibility:String,
     count:Number,
-    code:String
+    code:String,
+    image:String
 
 });
 

@@ -21,7 +21,7 @@
     <div class="title">
       Registration Form
     </div>
-    <form (ngSubmit)="registerStudent()" #studentReg='ngForm'>
+    <form (ngSubmit)="registerStudent()" #studentReg='ngForm' enctype="multipart/form-data">
     <div class="form">
        <div class="inputfield">
           <label>Name</label>
@@ -105,6 +105,11 @@
         <label>Course Fee</label>
         <input disabled="disabled" value="{{fees}}" type="number" class="input" name="coursefee" required>
      </div>
+
+     <div class="inputfield">
+      <label for="file">Upload Photo</label>
+      <input type="file" [(ngModel)]="student.image" (change)="selectImage($event)" class="input" name="image" required>
+   </div> 
        
       <div class="inputfield">
          <button type="submit" class="btn btn-primary" [disabled]='studentReg.form.invalid'>Register</button>

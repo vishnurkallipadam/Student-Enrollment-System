@@ -180,8 +180,6 @@ body {
   color: #fff;
 }
 
-
-
 .student-item {
   margin: 0 5px 20px 0;
   padding: 0 5px 20px 0;
@@ -194,9 +192,9 @@ body {
 }
 
 .student-details .avatar {
-  width: 40px;
-  height: auto;
-  border-radius: 20px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
   float: left;
   margin-right: 14px;
 }
@@ -204,7 +202,8 @@ body {
 .student-details h3 {
   margin: 4px 0 2px 0;
   font-weight: bold;
-  color: #4ba6c3;
+  font-size: 110%;
+  color: #29819e;
 }
 
 .student-details .email {

@@ -31,7 +31,7 @@
 
               <div class="col-md-4 col-sm-4" *ngFor='let course of courses'>
                    <div class="team-thumb wow fadeInUp" data-wow-delay="0.2s">
-                       <img src="../../assets/images/sigmund-FkUTlyPLhJQ-unsplash.jpg" class="img-responsive" alt="">
+                       <img src="http://localhost:5000/images/{{course._id}}.jpg" class="img-responsive" alt="image">
                              <div class="team-hover">
                                   <div class="team-item">
                                        <button class="btn btn-success "><a (click)="showCourse(course)">Know More</a></button>

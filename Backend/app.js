@@ -3,24 +3,30 @@ const app = express();
 const cors = require('cors');
 const nodemailer=require('nodemailer')
 const {google}=require('googleapis')
+const bodyParser = require('body-parser')
+var fileUpload=require('express-fileupload')
 const port = process.env.PORT || 5000;
 
 const bcrypt=require('bcrypt')
 const jwt = require('jsonwebtoken')
-const path = require('path');
 const razorpay=require('razorpay')
 const adminData = require('./src/model/adminData');
 const courseData= require('./src/model/courseData');
 const employeeData=require('./src/model/employeeData');
 const studentData = require('./src/model/studentData');
 const { oauth2 } = require('googleapis/build/src/apis/oauth2');
-app.use(express.static('./dist/LibraryApp'));
+
 let instance=new razorpay({
     key_id:'rzp_test_ZGATXfSKdjDjl0',
     key_secret:'JlpCgDzCSpxdvfKUIofLPs6w'
 })
 app.use(cors());
 app.use(express.json())
+app.use(cors({ origin: "*" }));
+app.use(bodyParser.json());
+app.use(fileUpload());
+app.use(express.static('public')); 
+app.use('/images', express.static('images'));
 
 const CLIENT_ID='358879111934-lldho3noupbpkclh30g3iv06t8ri0m64.apps.googleusercontent.com'
 const CLIENT_SECRET='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'
@@ -50,8 +56,8 @@ async function sendEmail(data){
           const mailOptions={
               from:'ICT Academy Kerala <creationzv@gmail.com>',
               to:data.studentMail,
-              subject:'COURSE ENROLLED SUCCESSFULLY',
-              text:`YOU HAVE BEEN SUCCESSFULLY ENROLLED TO ${data.courseName} . YOUR ID IS ${data.studentid}` 
+              subject:'Course Enrolled Successfully',
+              text:`You have been successfully enrolled to ${data.courseName} . Your ID is ${data.studentid}` 
 
           }
 
@@ -63,6 +69,27 @@ async function sendEmail(data){
     }
 }
 
+// image upload using express file uploads
+    app.post('/uploadImage',(req,res,next) => {
+        
+        let image = req.files.image;
+        let id = req.body.id;
+        image.mv('./public/images/'+id+'.jpg',(error,result)=>{
+           res.send();
+        })
+    })
+
+    app.post('/studentImage',(req,res,next) => {
+        console.log(req.body)
+        let image = req.files.image;
+        let id = req.body.id;
+        console.log(id)
+        image.mv('./public/images/'+id+'.jpg',(error,result)=>{
+           res.send();
+        })
+    })
+
+
 // get all courses
 app.get('/courses',function(req,res){
     res.header("Acces-Control-Allow-Origin","*");
@@ -71,7 +98,7 @@ app.get('/courses',function(req,res){
                 .then(function(courses){
                     res.send(courses);
                 });
-});
+});   
 
 // get single course using _id
 app.get('/course/:id',function(req,res){  
@@ -88,6 +115,7 @@ app.post('/add-course',(req,res)=>{
     res.header("Acces-Control-Allow-Origin","*");
     res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD"); 
     console.log(req.body);
+    console.log(req.files);
     var item={
         name : req.body.course.name,
         certification : req.body.course.certification,
@@ -98,8 +126,11 @@ app.post('/add-course',(req,res)=>{
         count:0
     }
     let course = new courseData(item);
-    course.save();
-    res.send();
+    course.save().then((data)=>{
+        console.log(data)
+        res.send(data);
+    })
+   
 });
 
 // delete course
@@ -165,8 +196,7 @@ app.post('/register-student',async (req,res)=>{
                     res.send(order)
                 }
               });
-    
-    
+
         });
         
     })
@@ -200,8 +230,7 @@ app.post("/verify-payment",(req,res)=>{
                 console.log("courseName from db:"+data.courseName);
                 sendEmail(data).then((res)=>{
                     console.log(res);
-                    
-                    
+                     
                 })
             })
         })
