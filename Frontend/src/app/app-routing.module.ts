@@ -12,6 +12,7 @@ import { EmpregisterComponent } from './empregister/empregister.component';
 import { EmployeeapprovalComponent } from './employeeapproval/employeeapproval.component';
 import { EmployeesComponent } from './employees/employees.component';
 import { SearchComponent } from './search/search.component';
+import { UpdateCourseComponent } from './update-course/update-course.component';
 
 const routes: Routes = [
   {
@@ -68,6 +69,10 @@ const routes: Routes = [
   {
     path:'search',
     component:SearchComponent
+  },
+  {
+    path:'update-course',
+    component:UpdateCourseComponent
   }
   
 ];

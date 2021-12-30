@@ -20,6 +20,7 @@ import { EmployeeapprovalComponent } from './employeeapproval/employeeapproval.c
 import { EmployeesComponent } from './employees/employees.component';
 import { SearchComponent } from './search/search.component';
 import { SearchFilterPipe } from './search-filter.pipe';
+import { UpdateCourseComponent } from './update-course/update-course.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { SearchFilterPipe } from './search-filter.pipe';
     EmployeeapprovalComponent,
     EmployeesComponent,
     SearchComponent,
-    SearchFilterPipe
+    SearchFilterPipe,
+    UpdateCourseComponent
   ],
   imports: [
     BrowserModule,

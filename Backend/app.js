@@ -133,6 +133,26 @@ app.post('/add-course',(req,res)=>{
    
 });
 
+app.put('/update-course',(req,res)=>{
+    res.header("Acces-Control-Allow-Origin","*");
+    res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD"); 
+    console.log(req.body)
+    let id=req.body.course._id
+    courseData.findByIdAndUpdate({"_id":id},
+    {$set:
+        {
+            name : req.body.course.name,
+            certification : req.body.course.certification,
+            details : req.body.course.details,
+            price : req.body.course.price,
+            eligibility : req.body.course.eligibility,
+            code:req.body.course.code
+ }}) .then((data)=>{
+    console.log(data); 
+    res.send(data)
+})
+                                })
+
 // delete course
 app.delete('/remove-course/:id',(req,res)=>{  
     id = req.params.id;

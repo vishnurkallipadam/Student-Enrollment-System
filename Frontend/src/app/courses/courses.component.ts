@@ -42,6 +42,9 @@ export class CoursesComponent implements OnInit {
       this.ngOnInit()
     })
   }
-  editCourse(course:any){}
+  editCourse(course:any){
+    localStorage.setItem('editcourse',course._id)
+    this.router.navigate(['update-course'])
+  }
 
 }

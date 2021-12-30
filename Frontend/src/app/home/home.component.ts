@@ -11,22 +11,24 @@ import { HttpClient } from '@angular/common/http';
 export class HomeComponent implements OnInit {
 
    name:any=''
-   certified:any=''
+   certification:any=''
    code:any=''
    details:any=''
    price:any=''
    eligibility:any=''
    image:any=''
 
-  courses=(this.name,this.certified,this.code,this.details,this.price,this.eligibility,this.image)
+  courses=(this.name,this.certification,this.code,this.details,this.price,this.eligibility,this.image)
 
-  constructor(private courseService:CourseService,private router:Router,public http:HttpClient) { }
-
-  ngOnInit(): void {
+  constructor(private courseService:CourseService,private router:Router,public http:HttpClient) {
     this.courseService.getCourses()
     .subscribe((data)=>{
       this.courses=JSON.parse(JSON.stringify(data))
     })
+   }
+
+  ngOnInit(): void {
+
   }
 
   showCourse(course:any){

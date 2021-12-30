@@ -25,4 +25,8 @@ export class CourseService {
     return this.http.delete("http://localhost:5000/remove-course/"+id)
   }
 
+  updateCourse(course:any){
+    return this.http.put('http://localhost:5000/update-course',{"course":course})
+  }
+
 }
