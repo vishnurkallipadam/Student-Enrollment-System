@@ -13,6 +13,7 @@ export class studentModel {
        public employmentStatus:any='',
        public technologyTraining:any='',
        public course:any='',
+       public image:any=''
        
         ){}
 }

@@ -24,10 +24,14 @@
     <ul class="student-list" *ngFor='let student of students' >
       <li class="student-item cf">
           <div class="student-details">
-              <img class="avatar" src="https://randomuser.me/api/portraits/thumb/women/67.jpg">
-              <h3>{{student.name}}</h3>
-              <span class="email">{{student.id}}</span><br>
-              <span class="email">{{student.email}}</span>
+               <div class="col-md-6">
+                    <img class="avatar" src="http://localhost:5000/images/{{student._id}}.jpg" >
+               </div>
+               <div class="col-md-6" style="margin-left: -16%;">
+                    <h3>{{student.name}}</h3>
+                    <span class="email">Student ID : {{student.id}}</span><br>
+                    <span class="email">{{student.email}}</span>
+               </div>
           </div>
           <div class="joined-details">
                  <button (click)="showStudent(student)" class=" btn btn-primary">Show Details</button>

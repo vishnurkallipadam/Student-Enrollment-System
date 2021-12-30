@@ -20,7 +20,9 @@ const studentSchema= new schema({
     technologyTraining:String,
     course:String,
     payment:String,
-    id:String
+    id:String,
+    image:String
+
 
 });
 

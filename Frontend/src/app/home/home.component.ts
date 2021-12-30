@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseService } from '../course.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -9,14 +10,17 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  name:any=''
+   name:any=''
+   certified:any=''
+   code:any=''
    details:any=''
    price:any=''
    eligibility:any=''
+   image:any=''
 
-  courses=(this.name,this.details,this.price,this.eligibility)
+  courses=(this.name,this.certified,this.code,this.details,this.price,this.eligibility,this.image)
 
-  constructor(private courseService:CourseService,private router:Router) { }
+  constructor(private courseService:CourseService,private router:Router,public http:HttpClient) { }
 
   ngOnInit(): void {
     this.courseService.getCourses()

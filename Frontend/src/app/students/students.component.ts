@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { studentModel } from '../registerform/student.model';
@@ -10,11 +11,12 @@ import { StudentService } from '../student.service';
 })
 export class StudentsComponent implements OnInit {
 
-  constructor(private studentService:StudentService,private router:Router) { }
+  constructor(private studentService:StudentService,private router:Router,public http:HttpClient) { }
   name:any=''
   id:any=''
   email:any=''
-  students=(this.name,this.id,this.email)
+  image:any=''
+  students=(this.name,this.id,this.email,this.image)
   ngOnInit(): void {
     this.studentService.getStudents()
     .subscribe((data)=>{

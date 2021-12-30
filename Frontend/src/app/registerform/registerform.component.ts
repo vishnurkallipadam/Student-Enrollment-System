@@ -4,6 +4,7 @@ import { CourseService } from '../course.service';
 import { studentModel } from './student.model';
 import { StudentService } from '../student.service';
 import { PaymentService } from '../payment.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-registerform',
@@ -19,7 +20,7 @@ export class RegisterformComponent implements OnInit {
 
  courses=(this._id,this.name,this.details,this.price,this.eligibility)
  fees:any=''
-  constructor(private courseserrvice:CourseService,private router:Router,private studentService:StudentService,private paymenetService:PaymentService) { }
+  constructor(private courseserrvice:CourseService,private router:Router,private studentService:StudentService,private paymenetService:PaymentService,public http:HttpClient) { }
   try:any=[]
   ngOnInit(): void {
     this.courseserrvice.getCourses()
@@ -28,10 +29,10 @@ export class RegisterformComponent implements OnInit {
       console.log(this.courses);
       
     })
-    
-
   }
-  student = new studentModel('','','','','','','','','','','')
+
+
+  student = new studentModel('','','','','','','','','','','','')
  
   courseFee(id:any){
     console.log(id);
@@ -69,8 +70,27 @@ export class RegisterformComponent implements OnInit {
         "color": "#00000"
     }
 };
+
+
+images: any;
+
+  selectImage(event:any) {
+    if (event.target.files.length > 0) {
+      
+      const file = event.target.files[0];
+      this.images = file;     
+      console.log(this.images);
+    }
+  }
+
+  add:any=[]
  order:any=[]
+
   registerStudent(){
+
+    const formData = new FormData();
+    formData.append('image', this.images);
+
     this.studentService.registerStudent(this.student,this.fees)
     .subscribe((data)=>{
       console.log(data);
@@ -78,7 +98,20 @@ export class RegisterformComponent implements OnInit {
       this.options.order_id=this.order.id
       this.options.amount=this.order.amount
       let rzp1 = new this.paymenetService.nativeWindow.Razorpay(this.options);
-      rzp1.open(); 
+      rzp1.open();
+      
+      // image upload
+      // this.add = JSON.parse(JSON.stringify(data));
+      console.log(this.order.receipt)
+      formData.set('id',this.order.receipt);
+      this.http.post<any>('http://localhost:5000/studentImage',formData).subscribe(
+          (data) => {
+            console.log(data);
+            this.router.navigate(['/login'])
+          },
+          (err) => console.log(err)
+          );
+      
     })
   }
   paymentResponse:any=[]
@@ -87,12 +120,13 @@ export class RegisterformComponent implements OnInit {
     this.paymenetService.verifyPayment(_response,this.order.receipt)
     .subscribe((success)=>{
       console.log(success);
+    
       this.paymentResponse=JSON.parse(JSON.stringify(success))
       console.log(this.paymentResponse.signatureIsValid);
       
       if(this.paymentResponse.signatureIsValid){
         alert("payment is success")
-        this.router.navigate([''])
+        this.router.navigate(['login'])
       }else{
         alert("payment is failed please retry")
         this.router.navigate(['enroll'])
@@ -101,6 +135,8 @@ export class RegisterformComponent implements OnInit {
      
     })
   }
+
+  
 }
 
 
