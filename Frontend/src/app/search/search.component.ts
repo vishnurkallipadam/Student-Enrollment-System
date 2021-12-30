@@ -16,8 +16,9 @@ export class SearchComponent implements OnInit {
   district:any=''
   state:any=''
   qualification:any=''
+  employmentStatus:any=''
 
-  students=(this.name,this.email,this.qualification,this.district,this.state,this.passout)
+  students=(this.name,this.email,this.qualification,this.district,this.state,this.passout,this.employmentStatus)
   ngOnInit(): void {
     this.studentservice.searchStudents().subscribe((data)=>{
       this.students=JSON.parse(JSON.stringify(data))
