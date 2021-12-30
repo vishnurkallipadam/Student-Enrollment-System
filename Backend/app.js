@@ -152,54 +152,60 @@ app.post('/register-student',async (req,res)=>{
         },
         {
             $inc: { count: 1 } 
-        }).then((res)=>{
-            console.log(res);
-        })
-    courseData.findOne({_id:req.body.student.course}, async function(err,course){ 
-        console.log(course.code);
-        console.log(course.count);
-        var item={
-            name:req.body.student.name,
-            email:req.body.student.email,
-            phone:req.body.student.phone,
-            address:req.body.student.address,
-            district:req.body.student.district,
-            state:req.body.student.state,
-            password:req.body.student.password,
-            qualification:req.body.student.qualification,
-            passout:req.body.student.passout,
-            skillset:req.body.student.skillset,
-            employmentStatus:req.body.student.employmentStatus,
-            technologyTraining:req.body.student.technologyTraining,
-            course:req.body.student.course,
-            payment:"pending",
-            id:`${course.code}${course.count}`
-        }
-        item.password=await bcrypt.hash(item.password,10)
-        var fees=req.body.fees
-        console.log(fees);
-        let student = new studentData(item);
-        student.save((err,data)=>{
-            let orderid=data._id
-            console.log(orderid);
-            var options = {
-                amount: fees*100,  // amount in the smallest currency unit
-                currency: "INR",
-                receipt: ""+orderid
-              };
-              instance.orders.create(options, function(err, order) {
-                
-                if(err){
-                    console.log(err);
-                }else{
-                    console.log('order',order);
-                    res.send(order)
+        }).then((response)=>{
+            console.log(response);
+            courseData.findOne({_id:req.body.student.course}, async function(err,course){ 
+                console.log(course.code);
+                console.log(course.count);
+                var item={
+                    name:req.body.student.name,
+                    email:req.body.student.email,
+                    phone:req.body.student.phone,
+                    address:req.body.student.address,
+                    district:req.body.student.district,
+                    state:req.body.student.state,
+                    password:req.body.student.password,
+                    qualification:req.body.student.qualification,
+                    passout:req.body.student.passout,
+                    skillset:req.body.student.skillset,
+                    employmentStatus:req.body.student.employmentStatus,
+                    technologyTraining:req.body.student.technologyTraining,
+                    course:req.body.student.course,
+                    payment:"pending",
+                    id:`${course.code}${course.count}`
                 }
               });
 
         });
         
     })
+                item.password=await bcrypt.hash(item.password,10)
+                var fees=req.body.fees
+                console.log(fees);
+                let student = new studentData(item);
+                student.save((err,data)=>{
+                    let orderid=data._id
+                    console.log(orderid);
+                    var options = {
+                        amount: fees*100,  // amount in the smallest currency unit
+                        currency: "INR",
+                        receipt: ""+orderid
+                      };
+                      instance.orders.create(options, function(err, order) {
+                        
+                        if(err){
+                            console.log(err);
+                        }else{
+                            console.log('order',order);
+                            res.send(order)
+                        }
+                      });
+            
+            
+                });
+                
+            })
+        })
 });
 
 
@@ -255,5 +261,147 @@ app.get('/students',function(req,res){
                     res.send(student);
                 });
 });
+
+app.post('/studentLogin',(req,res)=>{
+    res.header("Acces-Control-Allow-Origin","*");
+    res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD");
+
+    studentData.findOne({username:req.body.student.email,payment:'Success'},(err,student)=>{
+        if(student){
+            bcrypt.compare(req.body.student.password,student.password)
+            .then((response)=>{
+                if(response){
+                    console.log("student");
+                    let payload = {subject: req.body.student.email+req.body.student.password}
+                    let token = jwt.sign(payload, 'studentKey')
+                    res.status(200).send({token,role:'student',id:student._id})
+                   
+                }else{
+                    res.status(401).send('Invalid Student Password')
+                }
+            })   
+        }else{
+            res.status(401).send('Invalid credential')
+        }
+    })
+
+
+})
+
+app.post('/adminLogin',async(req,res)=>{
+    console.log("adminlogin");
+    res.header("Acces-Control-Allow-Origin","*");
+    res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD");
+    adminData.findOne({username:req.body.admin.email},(err,admin)=>{
+        if(admin){
+            bcrypt.compare(req.body.admin.password,admin.password)
+            .then((response)=>{
+                if(response){
+                    console.log("admin");
+                    let payload = {subject: req.body.admin.email+req.body.admin.password}
+                    let token = jwt.sign(payload, 'adminKey')
+                    res.status(200).send({token,role:'admin'})
+                   
+                }else{
+                    res.status(401).send('Invalid Admin Password')
+                }
+            })   
+        }else{
+            res.status(401).send('Invalid credential')
+        }
+    })
+
+})
+
+app.post('/employeeLogin',(req,res)=>{
+    res.header("Acces-Control-Allow-Origin","*");
+    res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD");
+    employeeData.findOne({username:req.body.employee.email,status:"approved"},(err,employee)=>{
+        if(employee){
+            bcrypt.compare(req.body.employee.password,employee.password)
+            .then((response)=>{
+                if(response){
+                    console.log("employee");
+                    let payload = {subject: req.body.employee.email+req.body.employee.password}
+                    let token = jwt.sign(payload, 'employeeKey')
+                    res.status(200).send({token,role:'employee',id:employee._id})
+                   
+                }else{
+                    console.log("Invalid Employee Password");
+                    res.status(401).send('Invalid Employee Password')
+                }
+            })   
+        }else{
+            console.log("Invalid credential");
+            res.status(401).send('Invalid credential')
+        }
+    })
+
+})
+
+app.post('/employeeRegister',async(req,res)=>{
+    res.header("Acces-Control-Allow-Origin","*");
+    res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD");
+    console.log(req.body);
+    data={
+        name:req.body.employee.name,
+        email:req.body.employee.email,
+        password:req.body.employee.password,
+        role:req.body.employee.role,
+        status:"pending"
+    }
+    data.password= await bcrypt.hash(data.password,10)
+    let employee = new employeeData(data)
+    employee.save()
+    res.send()
+})
+
+app.get('/pending-employee',(req,res)=>{
+    res.header("Acces-Control-Allow-Origin","*");
+    res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD");
+    employeeData.find({status:'pending'}).then((data)=>{
+        res.send(data)
+    })
+})
+
+app.post('/approve-employee',(req,res)=>{
+    res.header("Acces-Control-Allow-Origin","*");
+    res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD");
+    employeeData.updateOne(
+        { 
+            _id: req.body.id 
+        },
+        {
+            $set: { 'status': 'approved'} 
+        }).then((data)=>{
+            res.send();
+        })
+})
+
+app.delete('/reject-employee/:id',(req,res)=>{  
+    id = req.params.id;
+    employeeData.findByIdAndDelete({"_id":id})
+    .then(()=>{
+        console.log('success')
+        res.send();
+    })
+});
+
+app.get('/employees',(req,res)=>{
+    employeeData.find({status:"approved"})
+    .then((data)=>{
+        res.send(data)
+    })
+})
+
+app.get('/search-student',(req,res)=>{
+    res.header("Acces-Control-Allow-Origin","*");
+    res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD");
+    studentData.find({payment:'Success'})
+                .then(function(student){
+                    res.send(student);
+                });
+
+})
 
 app.listen(port,()=>{console.log("server Ready at"+port)});

@@ -15,4 +15,8 @@ export class StudentService {
   getStudents(){
     return this.http.get("http://localhost:5000/students");
   }
+
+  searchStudents(){
+    return this.http.get("http://localhost:5000/search-student")
+  }
 }

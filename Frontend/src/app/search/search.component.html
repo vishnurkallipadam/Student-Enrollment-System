@@ -1,0 +1,53 @@
+<section id="home" class="slider" data-stellar-background-ratio="0.5">
+    <div class="row">
+
+              <div class="owl-theme">
+                   <div class="item item-third">
+                        <div class="caption">
+                             <div class="container">
+                                  <div class="col-md-8 col-sm-12">
+                                      <h1>Search Students</h1>
+                                  </div>
+                             </div>
+                        </div>
+                   </div>
+
+                  
+              </div>
+
+    </div>
+</section>
+
+
+<div class="container mt-5">
+  <div class="form-group">
+    <h3>Search</h3>
+    <input type="text" class="form-control mb-2" placeholder="Search" [(ngModel)]="query" id="listSearch">
+  </div>
+  <table class="table">
+    <thead>
+      <tr class="table-danger">
+        <th scope="col">Name of Student</th>
+        <th scope="col">Email</th>
+        <th scope="col">Qualification</th>
+        <th scope="col">District</th>
+        <th scope="col">State</th>
+        <th scope="col">Passout Year</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        
+      <tr *ngFor="let student of students | searchFilter: query">
+        <th  data-label="Name of Student" scope="row">{{student.name}}</th>
+        <td  data-label="Email">{{student.email}}</td>
+        <td  data-label="Qualification">{{student.qualification}}</td>
+        <td data-label="District">{{student.district}}</td>
+        <td data-label="State">{{student.state}}</td>
+        <td data-label="Passout Year">{{student.passout}}</td>
+      </tr>
+
+    </tbody>
+  </table>
+  
+</div>
