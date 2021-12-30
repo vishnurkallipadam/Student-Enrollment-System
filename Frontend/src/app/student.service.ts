@@ -19,4 +19,8 @@ export class StudentService {
   searchStudents(){
     return this.http.get("http://localhost:5000/search-student")
   }
+
+  removeStudent(id:any){
+    return this.http.delete("http://localhost:5000/remove-student/"+id)
+  }
 }

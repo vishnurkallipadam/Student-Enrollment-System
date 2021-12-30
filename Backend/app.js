@@ -421,4 +421,15 @@ app.get('/search-student',(req,res)=>{
 
 })
 
+// delete student
+app.delete('/remove-student/:id',(req,res)=>{  
+    id = req.params.id;
+    studentData.findByIdAndDelete({"_id":id})
+    .then(()=>{
+        console.log('success')
+        res.send();
+    })
+});
+
+
 app.listen(port,()=>{console.log("server Ready at"+port)});
