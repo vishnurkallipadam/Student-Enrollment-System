@@ -31,4 +31,7 @@ export class EmployeeService {
     return this.http.get("http://localhost:5000/employees")
   }
 
+  removeEmployee(id:any){
+    return this.http.delete("http://localhost:5000/remove-employee/"+id)
+  }
 }

@@ -23,5 +23,15 @@ export class EmployeesComponent implements OnInit {
   }
 
   showEmployee(employee:any){}
+  editEmployee(employee:any){}
+  deleteEmployee(employee:any){
+    console.log(employee);
+    this.employeeService.removeEmployee(employee._id)
+    .subscribe((data) => {
+      this.ngOnInit()
+    })
+
+  }
+
 
 }

@@ -431,5 +431,15 @@ app.delete('/remove-student/:id',(req,res)=>{
     })
 });
 
+// delete employee
+app.delete('/remove-employee/:id',(req,res)=>{  
+    id = req.params.id;
+    employeeData.findByIdAndDelete({"_id":id})
+    .then(()=>{
+        console.log('success')
+        res.send();
+    })
+});
+
 
 app.listen(port,()=>{console.log("server Ready at"+port)});
