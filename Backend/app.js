@@ -204,9 +204,7 @@ app.post('/register-student',async (req,res)=>{
             
                 });
                 
-            })
-        })
-});
+
 
 
 app.post("/verify-payment",(req,res)=>{
