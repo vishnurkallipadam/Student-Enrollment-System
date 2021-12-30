@@ -174,11 +174,7 @@ app.post('/register-student',async (req,res)=>{
                     payment:"pending",
                     id:`${course.code}${course.count}`
                 }
-              });
-
-        });
-        
-    })
+            
                 item.password=await bcrypt.hash(item.password,10)
                 var fees=req.body.fees
                 console.log(fees);
@@ -203,9 +199,12 @@ app.post('/register-student',async (req,res)=>{
             
             
                 });
+            })
+        })
+})
                 
 
-
+            
 
 app.post("/verify-payment",(req,res)=>{
 
