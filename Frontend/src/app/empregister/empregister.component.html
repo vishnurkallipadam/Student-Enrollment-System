@@ -1,25 +1,35 @@
 <div class="container reg">
 <div class="wrapper">
     <div class="title">
-      Registration Form
+         Registration Form
     </div>
-    <form  #employeeReg='ngForm' (submit)="employeeRegister()">
+    <form  #employeeReg='ngForm' (submit)="employeeRegister()" [formGroup]="loginForm">
     <div class="form">
        <div class="inputfield">
           <label>Name</label>
-          <input  type="text" [(ngModel)]="user.name" class="input" name="name" required>
+          <input  type="text" formControlName='name' class="input" name="name" required>
        </div>  
         <div class="inputfield">
           <label>Email</label>
-          <input type="email" [(ngModel)]="user.email" class="input" name="email" required>
-       </div>  
+          <input type="email" formControlName='email' class="input" name="email">
+       </div>
+       <div class="inputfield">
+         <label></label>
+         <span style="color: red; margin-top: -2%;" *ngIf='email && email.invalid && email.touched '>Email is not valid</span>
+        </div>  
+
        <div class="inputfield">
          <label>Password</label>
-         <input type="password" [(ngModel)]="user.password" class="input" name="password" required>
+         <input type="password" formControlName='password' class="input" name="password">
       </div> 
       <div class="inputfield">
+         <label></label>
+         <span style="color: red; margin-top: -2%;" *ngIf='password && password.invalid && password.touched ' class="alert alert-danger">Password should have one Uppercase, one Lowecase and one number and atleast 8 characters </span>
+        </div>
+
+      <div class="inputfield">
           <label>Role</label>
-          <input type="text" [(ngModel)]="user.role" class="input" name="role" required>
+          <input type="text" formControlName='role' class="input" name="role" required>
           
        </div>
        
