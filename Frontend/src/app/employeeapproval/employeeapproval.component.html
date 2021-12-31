@@ -21,7 +21,8 @@
      <div class="page-header cf">
        <h2>PENDING LIST</h2>
      </div>
-     <ul class="student-list" *ngFor='let employee of employees' >
+     <ul class="student-list" *ngFor='let employee of employees;' >
+
        <li class="student-item cf">
            <div class="student-details">
                <img class="avatar" src="https://randomuser.me/api/portraits/thumb/women/67.jpg">
@@ -36,4 +37,5 @@
           </div>
        </li>
      </ul>
-   </div>
+     <div *ngIf='employees.length===0'><h2><strong> No Pending List Found</strong></h2></div>
+</div>

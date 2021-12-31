@@ -36,7 +36,7 @@
         <th scope="col">Employment Status</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody *ngIf="( students |  searchFilter: query) as result">
       
         
       <tr *ngFor="let student of students | searchFilter: query">
@@ -49,6 +49,7 @@
         <td data-label="Employment Status">{{student.employmentStatus}}</td>
 
       </tr>
+      <div *ngIf="result.length === 0"><h2><strong>NO RESULTS FOUND</strong></h2></div>
 
     </tbody>
   </table>
