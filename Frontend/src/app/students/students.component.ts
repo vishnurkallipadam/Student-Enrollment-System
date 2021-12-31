@@ -28,7 +28,7 @@ export class StudentsComponent implements OnInit {
 
   showStudent(student:any){
     localStorage.setItem('showstudent',student._id)
-    this.router.navigate([''])
+    this.router.navigate(['student'])
   }
 
   editStudent(student:any){

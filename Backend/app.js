@@ -441,5 +441,15 @@ app.delete('/remove-employee/:id',(req,res)=>{
     })
 });
 
+// get single student using _id
+app.get('/student/:id',function(req,res){  
+    res.header("Acces-Control-Allow-Origin","*");
+    res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD"); 
+    let id=req.params.id;
+    studentData.findOne({_id:id},function(err,student){ 
+        res.send(student)
+    })
+});
+
 
 app.listen(port,()=>{console.log("server Ready at"+port)});

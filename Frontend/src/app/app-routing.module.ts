@@ -13,6 +13,7 @@ import { EmployeeapprovalComponent } from './employeeapproval/employeeapproval.c
 import { EmployeesComponent } from './employees/employees.component';
 import { SearchComponent } from './search/search.component';
 import { UpdateCourseComponent } from './update-course/update-course.component';
+import { MyprofileComponent } from './myprofile/myprofile.component';
 
 const routes: Routes = [
   {
@@ -43,6 +44,10 @@ const routes: Routes = [
   {
     path:'students',
     component:StudentsComponent
+  },
+  {
+    path:'student',
+    component:MyprofileComponent
   },
   {
     path:'login',

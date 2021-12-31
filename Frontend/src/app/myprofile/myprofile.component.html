@@ -1,57 +1,142 @@
-<!-- Student Profile -->
-<div class="student-profile py-4">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="card shadow-sm">
-            <div class="card-header bg-transparent text-center">
-              <img class="profile_img" src="https://placeimg.com/640/480/arch/any" alt="">
-              <h3>Ishmam Ahasan Samin</h3>
+<section id="home" class="slider" data-stellar-background-ratio="0.5">
+  <div class="row">
+
+            <div class="owl-theme">
+                 <div class="item item-third">
+                      <div class="caption">
+                           <div class="container">
+                                <div class="col-md-8 col-sm-12">
+                                    <h1>STUDENT DETAILS</h1>
+                                </div>
+                           </div>
+                      </div>
+                 </div>
+
+                
             </div>
-            <div class="card-body">
-              <p class="mb-0"><strong class="pr-1">Student ID:</strong>321000001</p>
-              <p class="mb-0"><strong class="pr-1">Class:</strong>4</p>
-              <p class="mb-0"><strong class="pr-1">Section:</strong>A</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-8">
-          <div class="card shadow-sm">
-            <div class="card-header bg-transparent border-0">
-              <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
-            </div>
-            <div class="card-body pt-0">
-              <table class="table table-bordered">
-                <tr>
-                  <th width="30%">Roll</th>
-                  <td width="2%">:</td>
-                  <td>125</td>
-                </tr>
-                <tr>
-                  <th width="30%">Academic Year	</th>
-                  <td width="2%">:</td>
-                  <td>2020</td>
-                </tr>
-                <tr>
-                  <th width="30%">Gender</th>
-                  <td width="2%">:</td>
-                  <td>Male</td>
-                </tr>
-                <tr>
-                  <th width="30%">Religion</th>
-                  <td width="2%">:</td>
-                  <td>Group</td>
-                </tr>
-                <tr>
-                  <th width="30%">blood</th>
-                  <td width="2%">:</td>
-                  <td>B+</td>
-                </tr>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
   </div>
-  <!-- /Student Profile -->
+</section>
+<!-- Student Profile -->
+
+
+<div class="container emp-profile">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                            <img src="http://localhost:5000/images/{{student._id}}.jpg" alt=""/>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-work">
+        
+                            <p>SKILLS</p>
+                            <a>{{student.skillset}}</a><br/>
+                        
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Student Id</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{student.id}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Name</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{student.name}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Email</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{student.email}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Phone</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{student.phone}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Employment Status</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{student.employmentStatus}}</p>
+                                            </div>
+                                        </div>
+                            </div>
+                            <div >
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Qualification</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{student.qualification}}</p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Passout Year</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{student.passout}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Technology Training</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{student.technologyTraining}}</p>
+                                    </div>
+                                </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Address</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{student.address}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>District</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{student.district}}</p>
+                                            </div>
+                                        </div>
+                                       
+                                  
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>State</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{student.state}}</p>
+                                            </div>
+                                        </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>         
+        </div>
