@@ -21,6 +21,7 @@ import { EmployeesComponent } from './employees/employees.component';
 import { SearchComponent } from './search/search.component';
 import { SearchFilterPipe } from './search-filter.pipe';
 import { UpdateCourseComponent } from './update-course/update-course.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { UpdateCourseComponent } from './update-course/update-course.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
