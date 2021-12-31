@@ -15,9 +15,6 @@ import { FormGroup,FormControl,Validators} from '@angular/forms'
 })
 export class RegisterformComponent implements OnInit {
 
-  
-
-
   _id:any=''
   name:any=''
   details:any=''
@@ -32,8 +29,8 @@ export class RegisterformComponent implements OnInit {
   loginForm = new FormGroup({
     name: new FormControl(''),
     email: new FormControl('',[Validators.required,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$')]),
-    password: new FormControl('',[Validators.required,Validators.minLength(8),Validators.pattern('')]),
-    mobile: new FormControl('',[Validators.required,Validators.pattern('')]),
+    password: new FormControl('',[Validators.required,Validators.pattern('^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\\D*\\d)[A-Za-z\\d!$%@#£€*?&]{8,}$')]),
+    mobile: new FormControl('',[Validators.required,Validators.pattern('^(\\+?\d{1,4}[\s-])?(?!0+\s+,?$)\\d{10}\s*,?$')]),
     address: new FormControl(''),
     district: new FormControl(''),
     state: new FormControl(''),
@@ -43,8 +40,7 @@ export class RegisterformComponent implements OnInit {
     employmentStatus: new FormControl(''),
     technologyTraining:new FormControl(''),
     course:new FormControl(''),
-    image:new FormControl(''),
-
+    image:new FormControl('')
   })
 
   get email(){ 
@@ -65,7 +61,6 @@ export class RegisterformComponent implements OnInit {
       console.log(this.courses);
       
     })
-     
   }
 
 
