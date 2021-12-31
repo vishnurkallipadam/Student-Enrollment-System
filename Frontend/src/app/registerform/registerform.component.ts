@@ -5,6 +5,8 @@ import { studentModel } from './student.model';
 import { StudentService } from '../student.service';
 import { PaymentService } from '../payment.service';
 import { HttpClient } from '@angular/common/http';
+import { FormGroup,FormControl,Validators} from '@angular/forms'
+
 
 @Component({
   selector: 'app-registerform',
@@ -12,16 +14,50 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./registerform.component.css']
 })
 export class RegisterformComponent implements OnInit {
+
+  
+
+
   _id:any=''
   name:any=''
   details:any=''
   price:any=''
   eligibility:any=''
 
- courses=(this._id,this.name,this.details,this.price,this.eligibility)
- fees:any=''
+  courses=(this._id,this.name,this.details,this.price,this.eligibility)
+  fees:any=''
   constructor(private courseserrvice:CourseService,private router:Router,private studentService:StudentService,private paymenetService:PaymentService,public http:HttpClient) { }
+  
+  // formGroup 
+  loginForm = new FormGroup({
+    name: new FormControl(''),
+    email: new FormControl('',[Validators.required,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$')]),
+    password: new FormControl('',[Validators.required,Validators.minLength(8),Validators.pattern('')]),
+    mobile: new FormControl('',[Validators.required,Validators.pattern('')]),
+    address: new FormControl(''),
+    district: new FormControl(''),
+    state: new FormControl(''),
+    qualification: new FormControl(''),
+    passout: new FormControl(''),
+    skillset: new FormControl(''),
+    employmentStatus: new FormControl(''),
+    technologyTraining:new FormControl(''),
+    course:new FormControl(''),
+    image:new FormControl(''),
+
+  })
+
+  get email(){ 
+    return this.loginForm.get('email');
+  }
+  
+  get password(){ 
+    return this.loginForm.get('password');
+  }
+  
+  
   try:any=[]
+
   ngOnInit(): void {
     this.courseserrvice.getCourses()
     .subscribe((data)=>{
@@ -29,6 +65,7 @@ export class RegisterformComponent implements OnInit {
       console.log(this.courses);
       
     })
+     
   }
 
 
@@ -88,10 +125,14 @@ images: any;
 
   registerStudent(){
 
+    console.log(this.loginForm.value);
+    
+    // image upload
     const formData = new FormData();
     formData.append('image', this.images);
 
-    this.studentService.registerStudent(this.student,this.fees)
+    // payment gateway
+    this.studentService.registerStudent(this.loginForm.value,this.fees)
     .subscribe((data)=>{
       console.log(data);
       this.order=JSON.parse(JSON.stringify(data))
@@ -101,13 +142,12 @@ images: any;
       rzp1.open();
       
       // image upload
-      // this.add = JSON.parse(JSON.stringify(data));
       console.log(this.order.receipt)
       formData.set('id',this.order.receipt);
       this.http.post<any>('http://localhost:5000/studentImage',formData).subscribe(
           (data) => {
             console.log(data);
-            this.router.navigate(['/login'])
+            this.router.navigate(['/login/studentlogin'])
           },
           (err) => console.log(err)
           );
@@ -132,10 +172,10 @@ images: any;
         this.router.navigate(['enroll'])
       }
       
-     
     })
   }
 
+  
   
 }
 
