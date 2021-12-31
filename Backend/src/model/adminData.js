@@ -1,7 +1,7 @@
 // assesing mongoose package
 const mongoose = require('mongoose');
 // database connection
-mongoose.connect('mongodb://localhost:27017/StudentEnrollmentSystem');
+mongoose.connect('mongodb+srv://userone:userone@ictakfiles.uq40y.mongodb.net/STUDENTENROLLSYSTEM?retryWrites=true&w=majority');
 
 // schema definition
 const schema = mongoose.Schema;
