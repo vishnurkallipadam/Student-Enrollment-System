@@ -10,6 +10,7 @@ body {
   background: #1f5673;
   padding: 0 10px;
 }
+
 .wrapper {
   max-width: 500px;
   width: 100%;
@@ -166,7 +167,6 @@ body {
 .wrapper .form .inputfield:last-child {
   margin-bottom: 0;
 }
-
 @media (max-width: 420px) {
   .wrapper .form .inputfield {
     flex-direction: column;
@@ -178,4 +178,10 @@ body {
   .wrapper .form .inputfield.terms {
     flex-direction: row;
   }
+}
+.wrapper .form .inputfield .ng-invalid {
+  border-left: 5px solid red;
+}
+.wrapper .form .inputfield .ng-valid {
+  border-left: 5px solid green;
 }
