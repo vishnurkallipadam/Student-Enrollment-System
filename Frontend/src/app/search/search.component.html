@@ -34,6 +34,7 @@
         <th scope="col">State</th>
         <th scope="col">Passout Year</th>
         <th scope="col">Employment Status</th>
+        <th scope="col">Course Name</th>
       </tr>
     </thead>
     <tbody *ngIf="( students |  searchFilter: query) as result">
@@ -47,6 +48,7 @@
         <td data-label="State">{{student.state}}</td>
         <td data-label="Passout Year">{{student.passout}}</td>
         <td data-label="Employment Status">{{student.employmentStatus}}</td>
+        <td data-label="Course Name">{{student.courseName}}</td>
 
       </tr>
       <div *ngIf="result.length === 0"><h2><strong>NO RESULTS FOUND</strong></h2></div>
