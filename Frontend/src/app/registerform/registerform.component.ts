@@ -51,6 +51,9 @@ export class RegisterformComponent implements OnInit {
     return this.loginForm.get('password');
   }
   
+  get mobile(){ 
+    return this.loginForm.get('mobile');
+  }
   
   try:any=[]
 

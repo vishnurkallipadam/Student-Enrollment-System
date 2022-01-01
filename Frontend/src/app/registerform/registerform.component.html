@@ -27,6 +27,7 @@
           <label>Name</label>
           <input type="text"  class="input form-control" formControlName='name' name="name" required>
        </div>  
+
         <div class="inputfield">
           <label>Email</label>
           <input type="email" class="input form-control" formControlName='email' name="email">
@@ -42,13 +43,19 @@
       </div>
       <div class="inputfield">
          <label></label>
-         <span style="color: red; margin-top: -2%;" *ngIf='password && password.invalid && password.touched ' class="alert alert-danger">Password should have one Uppercase, one Lowecase and one number</span>
+         <span style="color: red; margin-top: -2%;" *ngIf='password && password.invalid && password.touched'>Password should have one Uppercase, one Lowecase and one number, should contain atleast 8 characters</span>
         </div>
+       
 
        <div class="inputfield">
           <label>Mobile No.</label>
           <input type="tel" class="input form-control" formControlName='mobile' name="phone">
        </div>  
+       <div class="inputfield">
+         <label></label>
+         <span style="color: red; margin-top: -2%;" *ngIf='mobile && mobile.invalid && mobile.touched '>Enter valid mobile number</span>
+        </div>
+
       <div class="inputfield">
           <label>Address</label>
           <input type="text" class="input form-control" formControlName='address' name="address" required>

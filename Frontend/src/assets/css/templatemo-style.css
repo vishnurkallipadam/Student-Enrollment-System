@@ -143,7 +143,7 @@ section {
   -----------------------------------------*/
 
 .section-btn {
-  background: linear-gradient(black, rgb(204, 48, 94));
+  background-color: #5e0035;
   border-radius: 0;
   border: 0;
   color: #f9f9f9;
@@ -152,11 +152,12 @@ section {
   padding: 10px 25px;
   transition: 0.5s 0.2s;
 }
-
+.section-btn:hover {
+  color: wheat;
+}
 /*---------------------------------------
        PRE LOADER              
   -----------------------------------------*/
-
 .preloader {
   position: fixed;
   top: 0;
@@ -265,7 +266,8 @@ section {
 
 .custom-navbar .nav li a:hover {
   background: transparent;
-  color: #ce3232;
+  /* color: #ce3232; */
+  color: rgb(214, 175, 175);
 }
 
 .custom-navbar .navbar-nav > li > a:hover,
@@ -313,7 +315,9 @@ section {
   .top-nav-collapse .nav li a {
     color: #575757;
   }
-
+  .top-nav-collapse .nav li button {
+    color: #faf6f6;
+  }
   .top-nav-collapse .nav .section-btn a {
     color: #ffffff;
   }
@@ -388,14 +392,20 @@ section {
   padding: 4em 0 0 2em;
 }
 
+.slider .item1 {
+  background-position: inherit;
+  background-repeat: no-repeat;
+  background-attachment: local;
+  background-size: cover;
+  height: 600px;
+}
 .slider .item {
   background-position: inherit;
   background-repeat: no-repeat;
   background-attachment: local;
   background-size: cover;
-  height: 650px;
+  height: 400px;
 }
-
 .slider .item-first {
   background-image: url(../images/wallpaperflare.com_wallpaper.jpg);
 }
@@ -403,6 +413,18 @@ section {
   background-image: url(../images/pic2.jpg);
 }
 .slider .item-third {
+  background-image: url(../images/notebook-natural-laptop-macbook.jpg);
+}
+.slider .item-fourth {
+  background-image: url(../images/notebook-natural-laptop-macbook.jpg);
+}
+.slider .item-five {
+  background-image: url(../images/notebook-natural-laptop-macbook.jpg);
+}
+.slider .item-six {
+  background-image: url(../images/notebook-natural-laptop-macbook.jpg);
+}
+.slider .item-seven {
   background-image: url(../images/notebook-natural-laptop-macbook.jpg);
 }
 .slider .item-second .section-btn {

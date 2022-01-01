@@ -19,7 +19,7 @@
 </section>
 
 
-<div class="container mt-5">
+<div class="search mt-5">
   <div class="form-group">
     <h3>Search</h3>
     <input type="text" class="form-control mb-2" placeholder="Search" [(ngModel)]="query" id="listSearch">
@@ -40,7 +40,7 @@
       
         
       <tr *ngFor="let student of students | searchFilter: query">
-        <th  data-label="Name of Student" scope="row">{{student.name}}</th>
+        <td  data-label="Name of Student" scope="row">{{student.name}}</td>
         <td  data-label="Email">{{student.email}}</td>
         <td  data-label="Qualification">{{student.qualification}}</td>
         <td data-label="District">{{student.district}}</td>
@@ -49,8 +49,9 @@
         <td data-label="Employment Status">{{student.employmentStatus}}</td>
 
       </tr>
-      <div *ngIf="result.length === 0"><h2><strong>NO RESULTS FOUND</strong></h2></div>
-
+      <div>
+      <div *ngIf="result.length === 0" class="text-center" style="padding: 5px; color: red;"><h5>No Results Found</h5></div>
+      </div>
     </tbody>
   </table>
   
