@@ -1,8 +1,8 @@
 .form {
-  /* background-image: radial-gradient(rgb(219, 152, 152), rgb(107, 95, 90)); */
-  background-image: url("../../assets/images/addcourse.jpg");
+  background-image: linear-gradient(rgb(122, 120, 120), rgb(14, 12, 12));
   padding: 40px 20px 30px 20px;
   margin-top: 50px;
+  background-size: cover;
 }
 .start {
   justify-content: center;
