@@ -191,6 +191,7 @@ app.post('/register-student',async (req,res)=>{
                     employmentStatus:req.body.student.employmentStatus,
                     technologyTraining:req.body.student.technologyTraining,
                     course:req.body.student.course,
+                    courseName:course.name,
                     payment:"pending",
                     id:`${course.code}${course.count}`
                 }
