@@ -1,10 +1,9 @@
 .form {
-    /* background-image: radial-gradient(rgb(219, 152, 152), rgb(107, 95, 90)); */
-    background-image: url("../../assets/images/addcourse.jpg");
-    padding: 40px 20px 30px 20px;
-    margin-top: 50px;
-  }
-  .start {
-    justify-content: center;
-  }
-  
+  /* background-image: radial-gradient(rgb(219, 152, 152), rgb(107, 95, 90)); */
+  background-image: url("../../assets/images/glenn.jpg");
+  padding: 40px 20px 30px 20px;
+  margin-top: 50px;
+}
+.start {
+  justify-content: center;
+}
