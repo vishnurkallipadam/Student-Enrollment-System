@@ -7,7 +7,7 @@ http://www.templatemo.com/tm-515-eatery
 */
 
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
-
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap");
 body {
   background: #ffffff;
   font-family: "Montserrat", sans-serif;
@@ -334,6 +334,7 @@ section {
 #home h1 {
   color: #ffffff;
   padding-bottom: 30px;
+  font-family: "Comfortaa", cursive;
 }
 
 #home h3 {
@@ -404,35 +405,48 @@ section {
   background-repeat: no-repeat;
   background-attachment: local;
   background-size: cover;
-  height: 400px;
+  height: 450px;
 }
 .slider .item-first {
   background-image: url(../images/wallpaperflare.com_wallpaper.jpg);
 }
 .slider .item-second {
-  background-image: url(../images/pic2.jpg);
+  background-image: url(../images/glenn.jpg);
 }
 .slider .item-third {
-  background-image: url(../images/notebook-natural-laptop-macbook.jpg);
+  background-image: url(../images/wes-hicks-ptXljygBu-0-unsplash.jpg);
 }
 .slider .item-fourth {
-  background-image: url(../images/notebook-natural-laptop-macbook.jpg);
+  background-image: url(../images/davide-cantelli-e3Uy4k7ooYk-unsplash.jpg);
 }
-.slider .item-five {
-  background-image: url(../images/notebook-natural-laptop-macbook.jpg);
+.slider .item-fifth {
+  background-image: url(../images/istockphoto-1226854109-170667a.jpg);
 }
-.slider .item-six {
-  background-image: url(../images/notebook-natural-laptop-macbook.jpg);
+.slider .item-sixth {
+  background-image: url(../images/alex-kotliarskyi-QBpZGqEMsKg-unsplash.jpg);
 }
-.slider .item-seven {
-  background-image: url(../images/notebook-natural-laptop-macbook.jpg);
+.slider .item-seventh {
+  background-image: url(../images/search.jpg);
+}
+.slider .item-eight {
+  background-image: url(../images/login.jpg);
 }
 .slider .item-second .section-btn {
   background: #292929;
 }
-.slider .item-second .section-btn:hover {
+.slider .item-fourth .section-btn:hover {
   background: #ffffff;
 }
+.slider .item-fifth .section-btn:hover {
+  background: #ffffff;
+}
+.slider .item-sixth .section-btn:hover {
+  background: #ffffff;
+}
+.slider .item-seventh .section-btn:hover {
+  background: #ffffff;
+}
+
 .slider .item-third .section-btn {
   background: transparent;
   border: 1px solid #ffffff;
