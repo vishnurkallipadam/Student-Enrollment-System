@@ -161,7 +161,7 @@ images: any;
       
       if(this.paymentResponse.signatureIsValid){
         alert("payment is success")
-        this.router.navigate(['login'])
+        this.router.navigate(['/login/studentlogin'])
       }else{
         alert("payment is failed please retry")
         this.router.navigate(['enroll'])
