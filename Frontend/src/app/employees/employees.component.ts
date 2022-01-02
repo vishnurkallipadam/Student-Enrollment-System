@@ -23,7 +23,7 @@ export class EmployeesComponent implements OnInit {
     })
   }
 
-  showEmployee(employee:any){}
+
   editEmployee(employee:any){
     localStorage.setItem('editEmployee',employee._id)
     this.router.navigate(['update-employee'])

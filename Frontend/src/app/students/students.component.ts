@@ -33,7 +33,7 @@ export class StudentsComponent implements OnInit {
 
   editStudent(student:any){
     localStorage.setItem('editstudent',student._id)
-    
+    this.router.navigate(['update-student'])
   }
 
   deleteStudent(student:any){

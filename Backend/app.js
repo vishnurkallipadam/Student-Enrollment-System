@@ -483,4 +483,31 @@ app.put('/update-employee',(req,res)=>{
 })
 })
 
+// update sstudent
+app.put('/update-student',(req,res)=>{
+    res.header("Acces-Control-Allow-Origin","*");
+    res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD"); 
+    console.log(req.body)
+    let id=req.body.student._id
+    studentData.findByIdAndUpdate({"_id":id},
+    {
+        $set:{
+            name:req.body.student.name,
+            email:req.body.student.email,
+            phone:req.body.student.phone,
+            address:req.body.student.address,
+            district:req.body.student.district,
+            state:req.body.student.state,
+            qualification:req.body.student.qualification,
+            passout:req.body.student.passout,
+            skillset:req.body.student.skillset,
+            employmentStatus:req.body.student.employmentStatus,
+            technologyTraining:req.body.student.technologyTraining,
+            }
+    }) .then((data)=>{
+    console.log(data); 
+    res.send(data)
+})
+})
+
 app.listen(port,()=>{console.log("server Ready at"+port)});
