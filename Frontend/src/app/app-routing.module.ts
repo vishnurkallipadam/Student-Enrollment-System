@@ -14,6 +14,8 @@ import { EmployeesComponent } from './employees/employees.component';
 import { SearchComponent } from './search/search.component';
 import { UpdateCourseComponent } from './update-course/update-course.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
+import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
+import { UpdateStudentComponent } from './update-student/update-student.component';
 
 const routes: Routes = [
   {
@@ -78,6 +80,14 @@ const routes: Routes = [
   {
     path:'update-course',
     component:UpdateCourseComponent
+  },
+  {
+    path:'update-employee',
+    component:UpdateEmployeeComponent
+  },
+  {
+    path:'update-student',
+    component:UpdateStudentComponent
   }
   
 ];

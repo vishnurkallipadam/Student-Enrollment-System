@@ -405,6 +405,7 @@ app.delete('/reject-employee/:id',(req,res)=>{
     })
 });
 
+// employee
 app.get('/employees',(req,res)=>{
     employeeData.find({status:"approved"})
     .then((data)=>{
@@ -412,6 +413,7 @@ app.get('/employees',(req,res)=>{
     })
 })
 
+// search student
 app.get('/search-student',(req,res)=>{
     res.header("Acces-Control-Allow-Origin","*");
     res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD");
@@ -452,5 +454,33 @@ app.get('/student/:id',function(req,res){
     })
 });
 
+// get single employee using _id
+app.get('/employee/:id',function(req,res){  
+    res.header("Acces-Control-Allow-Origin","*");
+    res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD"); 
+    let id=req.params.id;
+    employeeData.findOne({_id:id},function(err,employee){ 
+        res.send(employee)
+    })
+});
+
+// update employee
+app.put('/update-employee',(req,res)=>{
+    res.header("Acces-Control-Allow-Origin","*");
+    res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD"); 
+    console.log(req.body)
+    let id=req.body.employee._id
+    employeeData.findByIdAndUpdate({"_id":id},
+    {
+        $set:{
+            name:req.body.employee.name,
+            email:req.body.employee.email,
+            role:req.body.employee.role,
+            }
+    }) .then((data)=>{
+    console.log(data); 
+    res.send(data)
+})
+})
 
 app.listen(port,()=>{console.log("server Ready at"+port)});

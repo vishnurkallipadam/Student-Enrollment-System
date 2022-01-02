@@ -22,6 +22,8 @@ import { SearchComponent } from './search/search.component';
 import { SearchFilterPipe } from './search-filter.pipe';
 import { UpdateCourseComponent } from './update-course/update-course.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
+import { UpdateStudentComponent } from './update-student/update-student.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     EmployeesComponent,
     SearchComponent,
     SearchFilterPipe,
-    UpdateCourseComponent
+    UpdateCourseComponent,
+    UpdateEmployeeComponent,
+    UpdateStudentComponent
   ],
   imports: [
     BrowserModule,
