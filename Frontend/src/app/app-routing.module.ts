@@ -16,6 +16,7 @@ import { UpdateCourseComponent } from './update-course/update-course.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { UpdateStudentComponent } from './update-student/update-student.component';
+import { MarkEntryComponent } from './mark-entry/mark-entry.component';
 
 const routes: Routes = [
   {
@@ -88,6 +89,10 @@ const routes: Routes = [
   {
     path:'update-student',
     component:UpdateStudentComponent
+  },
+  {
+    path:'mark-entry',
+    component:MarkEntryComponent
   }
   
 ];

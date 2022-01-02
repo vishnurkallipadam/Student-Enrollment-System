@@ -24,6 +24,7 @@ import { UpdateCourseComponent } from './update-course/update-course.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { UpdateStudentComponent } from './update-student/update-student.component';
+import { MarkEntryComponent } from './mark-entry/mark-entry.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { UpdateStudentComponent } from './update-student/update-student.componen
     SearchFilterPipe,
     UpdateCourseComponent,
     UpdateEmployeeComponent,
-    UpdateStudentComponent
+    UpdateStudentComponent,
+    MarkEntryComponent
   ],
   imports: [
     BrowserModule,

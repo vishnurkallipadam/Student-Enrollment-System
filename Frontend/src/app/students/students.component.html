@@ -22,8 +22,11 @@
 <div class="page">
     <div class="page-header cf">
       <h2>Students</h2>
+      <div class="form-group">
+       <input type="text" class="form-control mb-2" placeholder="Search" [(ngModel)]="query" id="listSearch">
+     </div>
     </div>
-    <ul class="student-list" *ngFor='let student of students' >
+    <ul class="student-list" *ngFor='let student of students | searchFilter: query' >
       <li class="student-item cf">
           <div class="student-details">
                <div class="col-md-6">
@@ -36,6 +39,7 @@
                </div>
           </div>
           <div class="joined-details">
+               <button (click)="enterMark(student)" class="btn btn-secondary">Mark Entry</button>
                <button (click)="editStudent(student)" class=" btn btn-warning">Edit</button>
                <button (click)="deleteStudent(student)" class=" btn btn-danger">Delete</button>
                <button (click)="showStudent(student)" class=" btn btn-primary">Show Details</button>

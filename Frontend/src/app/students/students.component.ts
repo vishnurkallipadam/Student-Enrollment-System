@@ -17,6 +17,8 @@ export class StudentsComponent implements OnInit {
   email:any=''
   image:any=''
   students=(this.name,this.id,this.email,this.image)
+  query:string | undefined
+  public searchFilter: any = '';
   ngOnInit(): void {
     this.studentService.getStudents()
     .subscribe((data)=>{
@@ -29,6 +31,11 @@ export class StudentsComponent implements OnInit {
   showStudent(student:any){
     localStorage.setItem('showstudent',student._id)
     this.router.navigate(['student'])
+  }
+
+  enterMark(student:any){
+    localStorage.setItem('enterMark',student._id)
+    this.router.navigate(['mark-entry'])
   }
 
   editStudent(student:any){

@@ -31,4 +31,8 @@ export class StudentService {
   updateStudent(student:any){
     return this.http.put('http://localhost:5000/update-student',{"student":student})
   }
+
+  exitMark(student:any){
+    return this.http.put('http://localhost:5000/exit-mark',{"student":student})
+  }
 }

@@ -193,7 +193,8 @@ app.post('/register-student',async (req,res)=>{
                     course:req.body.student.course,
                     courseName:course.name,
                     payment:"pending",
-                    id:`${course.code}${course.count}`
+                    id:`${course.code}${course.count}`,
+                    mark:""
                 }
             
                 item.password=await bcrypt.hash(item.password,10)
@@ -507,6 +508,27 @@ app.put('/update-student',(req,res)=>{
     }) .then((data)=>{
     console.log(data); 
     res.send(data)
+})
+})
+
+// enter exit mark
+app.put('/exit-mark',(req,res)=>{
+    res.header("Acces-Control-Allow-Origin","*");
+    res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD"); 
+    console.log(req.body.student.mark)
+    let id=req.body.student._id
+    studentData.findByIdAndUpdate({"_id":id},
+    {
+        $set:{
+            mark:req.body.student.mark,
+            courseName:req.body.student.courseName
+            }
+    }) .then((data)=>{
+    console.log(data); 
+    res.send(data)
+})
+.catch((data)=>{
+    console.log(data);
 })
 })
 

@@ -1,0 +1,51 @@
+<section id="home" class="slider" data-stellar-background-ratio="0.5">
+    <div class="row">
+
+              <div class="owl-theme">
+                   <div class="item item-seventh">
+                        <div class="caption">
+                             <div class="container">
+                                  <div class="col-md-8 col-sm-12">
+                                      <h1>EXIT EXAM MARK ENTRY</h1>
+                                  </div>
+                             </div>
+                        </div>
+                   </div>
+      
+              </div>
+
+    </div>
+</section>
+<div class="wrapper">
+     <div class="title">
+       Mark Entry
+     </div>
+     <form (ngSubmit)="enterMark()" #studentReg='ngForm' >
+     <div class="form">
+        <div class="inputfield" >
+           <label>Name</label>
+           <input type="text" disabled class="input form-control" [(ngModel)]="student.name" name="name" required>
+        </div>  
+ 
+         <div class="inputfield">
+           <label>ID</label>
+           <input type="text" disabled class="input form-control" [(ngModel)]="student.id" name="id">
+          </div>
+   
+        <div class="inputfield">
+           <label>Course Name</label>
+           <input type="text" disabled class="input form-control" [(ngModel)]="student.courseName" name="phone">
+        </div>  
+
+       <div class="inputfield">
+           <label>Exit Exam Mark</label>
+           <input type="text" class="input form-control" [(ngModel)]="student.mark" name="techtraining" required>
+        </div> 
+  
+       <div class="inputfield">
+          <button type="submit" class="btn btn-primary" [disabled]='studentReg.invalid'>Update</button>
+       </div>
+     </div>
+    </form>
+ </div>
+ 
