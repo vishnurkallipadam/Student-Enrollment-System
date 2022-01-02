@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CourseService } from '../course.service';
+
 
 
 @Component({
@@ -16,7 +18,7 @@ export class CourseComponent implements OnInit {
   eligibility:any=''
 
  course=(this.name,this.details,this.price,this.eligibility)
-  constructor(private router:Router,private courseService:CourseService) { }
+  constructor(private router:Router,private courseService:CourseService,public http:HttpClient) { }
 
   ngOnInit(): void {
     let id = localStorage.getItem('showcourse')
