@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../employee.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class EmployeesComponent implements OnInit {
   role:any=''
   
   employees=(this.name,this.email,this.role)
-  constructor(private employeeService:EmployeeService,private router:Router) { }
+  constructor(private employeeService:EmployeeService,private router:Router,public auth:AuthService) { }
 
   ngOnInit(): void {
     this.employeeService.getEmployees()

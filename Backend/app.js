@@ -319,7 +319,7 @@ app.post('/adminLogin',async(req,res)=>{
                     console.log("admin");
                     let payload = {subject: req.body.admin.email+req.body.admin.password}
                     let token = jwt.sign(payload, 'adminKey')
-                    res.status(200).send({token,role:'admin'})
+                    res.status(200).send({token,role:'admin',id:admin._id})
                    
                 }else{
                     res.status(401).send('Invalid Admin Password')

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 import { studentModel } from '../registerform/student.model';
 import { StudentService } from '../student.service';
 
@@ -11,7 +12,7 @@ import { StudentService } from '../student.service';
 })
 export class StudentsComponent implements OnInit {
 
-  constructor(private studentService:StudentService,private router:Router,public http:HttpClient) { }
+  constructor(private studentService:StudentService,private router:Router,public http:HttpClient,public auth:AuthService) { }
   name:any=''
   id:any=''
   email:any=''

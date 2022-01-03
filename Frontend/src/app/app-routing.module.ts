@@ -17,6 +17,8 @@ import { MyprofileComponent } from './myprofile/myprofile.component';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { UpdateStudentComponent } from './update-student/update-student.component';
 import { MarkEntryComponent } from './mark-entry/mark-entry.component';
+import { AdminguardGuard } from './adminguard.guard';
+import { EmployeeguardGuard } from './employeeguard.guard';
 
 const routes: Routes = [
   {
@@ -34,7 +36,8 @@ const routes: Routes = [
   },
   {
     path:'add-course',
-    component:AddCourseComponent
+    component:AddCourseComponent,
+    canActivate:[AdminguardGuard]
   },
   {
     path:'courses',
@@ -46,7 +49,8 @@ const routes: Routes = [
   },
   {
     path:'students',
-    component:StudentsComponent
+    component:StudentsComponent,
+    canActivate:[EmployeeguardGuard]
   },
   {
     path:'student',
@@ -68,23 +72,29 @@ const routes: Routes = [
   },
   {
     path:'employee-approval',
-    component:EmployeeapprovalComponent
+    component:EmployeeapprovalComponent,
+    canActivate:[AdminguardGuard]
   },
   {
     path:'employees',
-    component:EmployeesComponent
+    component:EmployeesComponent,
+    canActivate:[AdminguardGuard]
   },
   {
     path:'search',
-    component:SearchComponent
+    component:SearchComponent,
+    canActivate:[EmployeeguardGuard]
+
   },
   {
     path:'update-course',
-    component:UpdateCourseComponent
+    component:UpdateCourseComponent,
+    canActivate:[AdminguardGuard]
   },
   {
     path:'update-employee',
-    component:UpdateEmployeeComponent
+    component:UpdateEmployeeComponent,
+    canActivate:[AdminguardGuard]
   },
   {
     path:'update-student',
@@ -92,7 +102,8 @@ const routes: Routes = [
   },
   {
     path:'mark-entry',
-    component:MarkEntryComponent
+    component:MarkEntryComponent,
+    canActivate:[EmployeeguardGuard]
   }
   
 ];

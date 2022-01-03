@@ -160,7 +160,7 @@
                             
                             <!-- BUTTON START-->
                             <button class="generic_price_btn clearfix btn"  style="background-color: white;">
-                                <a (click)="registerNow(course)">Enroll Now</a>
+                                <a *ngIf="!auth.adminLoggedIn()&&!auth.employeeLoggedIn()" (click)="registerNow(course)">Enroll Now</a>
                             </button>
                             <!--//BUTTON END -->
                             
