@@ -19,8 +19,84 @@
 </section>
 <!-- Student Profile -->
 
+<!-- Student Profile -->
+<body>
+    
+<div class="student-profile py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card shadow-sm profile">
+            <div class="card-header bg-transparent text-center">
+              <img class="profile_img" src="http://localhost:5000/images/{{student._id}}.jpg" alt="">
+              <h3>{{student.name}}</h3>
+            </div>
+            <div class="card-body">
+              <p class="mb-0"><strong class="pr-1">Student ID:</strong>{{student.id}}</p>
+              <p class="mb-0"><strong class="pr-1">Email:</strong>{{student.email}}</p>
+              <p class="mb-0"><strong class="pr-1">Phone No:</strong>{{student.phone}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="card shadow-sm">
+            <div class="card-header bg-transparent border-0">
+              <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
+            </div>
+            <div class="card-body pt-0">
+              <table class="table table-bordered">
+                <tr>
+                  <th width="30%">Address</th>
+                  <td width="2%">:</td>
+                  <td>{{student.address}}</td>
+                </tr>
+                <tr>
+                  <th width="30%">District</th>
+                  <td width="2%">:</td>
+                  <td>{{student.district}}</td>
+                </tr>
+                <tr>
+                  <th width="30%">State</th>
+                  <td width="2%">:</td>
+                  <td>{{student.state}}</td>
+                </tr>
+                <tr>
+                  <th width="30%">Qualifictaion</th>
+                  <td width="2%">:</td>
+                  <td>{{student.qualification}}</td>
+                </tr>
+                <tr>
+                  <th width="30%">Passout Year</th>
+                  <td width="2%">:</td>
+                  <td>{{student.passout}}</td>
+                </tr>
+                <tr>
+                  <th width="30%">Technology Training</th>
+                  <td width="2%">:</td>
+                  <td>{{student.technologyTraining}}</td>
+                </tr>
+                <tr>
+                  <th width="30%">Skills</th>
+                  <td width="2%">:</td>
+                  <td>{{student.skillset}}</td>
+                </tr>
+                <tr>
+                  <th width="30%">Employment Status</th>
+                  <td width="2%">:</td>
+                  <td>{{student.employmentStatus}}</td>
+                </tr>
+                
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</body>
 
-<div class="container emp-profile">
+<!-- <div class="container emp-profile">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
@@ -139,4 +215,4 @@
                         </div>
                     </div>
                 </div>         
-        </div>
+        </div> -->
