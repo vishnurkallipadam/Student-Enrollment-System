@@ -440,6 +440,9 @@ section {
 .slider .item-profile {
   background-image: url(../images/profile.jpg);
 }
+.slider .item-update {
+  background-image: url(../images/update.jpg);
+}
 .slider .item-second .section-btn {
   background: #292929;
 }
