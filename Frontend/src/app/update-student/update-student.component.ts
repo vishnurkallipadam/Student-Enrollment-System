@@ -28,7 +28,7 @@ export class UpdateStudentComponent implements OnInit {
     .subscribe(
       response=>{
         console.log("success");
-        this.router.navigate(['/students'])  
+        this.router.navigate(['/'])  
       },
       err=>{
         console.log("failed");

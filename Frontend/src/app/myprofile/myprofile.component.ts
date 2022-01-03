@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { StudentService } from '../student.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { StudentService } from '../student.service';
 })
 export class MyprofileComponent implements OnInit {
 
-  constructor(private studentservice:StudentService) { }
+  constructor(private studentservice:StudentService,private router:Router) { }
 
   student:any=[]
 
@@ -19,6 +20,12 @@ export class MyprofileComponent implements OnInit {
       this.student=JSON.parse(JSON.stringify(data))
 
     })
+  }
+
+  updateProfile(student:any){
+    localStorage.setItem('editstudent',student._id)
+    this.router.navigate(['/update-student'])
+
   }
 
 }
