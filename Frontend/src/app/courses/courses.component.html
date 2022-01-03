@@ -26,7 +26,7 @@
                         <h4>Long Term Training ( 6 months )</h4>
                    </div>
               </div>
-              <div class="col-md-2 col-sm-12">
+              <div *ngIf="auth.adminLoggedIn()" class="col-md-2 col-sm-12">
                     <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
                          <div class="btn addcourse">
                               <a routerLink="/add-course"><span>Add Course</span></a>

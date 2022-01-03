@@ -34,6 +34,7 @@
                    <li><a routerLink="employees" *ngIf="auth.adminLoggedIn()" class="smoothScroll">Employees</a></li> 
                    <li><a routerLink="search" *ngIf="auth.adminLoggedIn()||auth.employeeLoggedIn()" class="smoothScroll">Search</a></li> 
                    <li><a (click)="logoutUser()" *ngIf="auth.adminLoggedIn()||auth.employeeLoggedIn()||auth.studentLoggedIn()" class="smoothScroll">Logout</a></li> 
+
               </ul>
 
               <ul  class="nav navbar-nav navbar-right ">
