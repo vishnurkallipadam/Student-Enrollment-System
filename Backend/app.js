@@ -285,7 +285,8 @@ app.post('/studentLogin',(req,res)=>{
     res.header("Acces-Control-Allow-Origin","*");
     res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD");
 
-    studentData.findOne({username:req.body.student.email,payment:'Success'},(err,student)=>{
+    studentData.findOne({email:req.body.student.email,payment:'Success'},(err,student)=>{
+        console.log(student);
         if(student){
             bcrypt.compare(req.body.student.password,student.password)
             .then((response)=>{
@@ -335,7 +336,7 @@ app.post('/adminLogin',async(req,res)=>{
 app.post('/employeeLogin',(req,res)=>{
     res.header("Acces-Control-Allow-Origin","*");
     res.header("Acces-Control-Allow-Methods: GET, POST, PATH, PUT, DELETE, HEAD");
-    employeeData.findOne({username:req.body.employee.email,status:"approved"},(err,employee)=>{
+    employeeData.findOne({email:req.body.employee.email,status:"approved"},(err,employee)=>{
         if(employee){
             bcrypt.compare(req.body.employee.password,employee.password)
             .then((response)=>{
