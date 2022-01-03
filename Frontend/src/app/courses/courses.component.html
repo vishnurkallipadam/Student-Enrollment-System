@@ -12,7 +12,6 @@
                         </div>
                    </div>
 
-                  
               </div>
 
     </div>
@@ -21,13 +20,21 @@
 <section id="courses" data-stellar-background-ratio="0.5">
     <div class="container">
          <div class="row">
-
-              <div class="col-md-12 col-sm-12">
+               <div>
+              <div class="col-md-10 col-sm-12">
                    <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
                         <h4>Long Term Training ( 6 months )</h4>
                    </div>
               </div>
-
+              <div class="col-md-2 col-sm-12">
+                    <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+                         <div class="btn addcourse">
+                              <a routerLink="/add-course"><span>Add Course</span></a>
+                             
+                          </div>
+                    </div>
+               </div>
+           </div>
 
               <div class="col-md-4 col-sm-4" *ngFor='let course of courses'>
                    <div class="team-thumb wow fadeInUp" data-wow-delay="0.2s">

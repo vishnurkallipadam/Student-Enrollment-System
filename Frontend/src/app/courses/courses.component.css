@@ -1,0 +1,14 @@
+#courses .addcourse {
+  border: 1px solid black;
+  padding: 7px;
+  background-color: #192d52;
+}
+#courses .addcourse span {
+  color: white;
+}
+#courses .addcourse span:hover {
+  color: black;
+}
+#courses .addcourse:hover {
+  background-color: rgb(164, 164, 209);
+}
