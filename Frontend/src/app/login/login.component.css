@@ -2,7 +2,7 @@
   width: 98%;
   height: 50px;
   color: white;
-  background-color: rgb(235, 235, 235);
+  background-color: rgb(255, 255, 255);
   padding: 1rem;
   margin-left: -1%;
 }
@@ -10,7 +10,12 @@
 .secondNav a {
   padding: 1rem;
   margin-right: 8px;
+  border: 2px solid rgb(35, 92, 145);
+  color: rgb(35, 92, 145);
 }
 .secondNav a:hover {
-  color: rgb(150, 150, 150);
+  color: rgb(5, 5, 7);
+  /* background-color: rgb(241, 212, 177); */
+  background: linear-gradient(rgb(241, 212, 177), white);
+  border: 1px solid black;
 }
