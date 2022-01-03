@@ -1,9 +1,12 @@
 .form {
-  background-image: linear-gradient(rgb(122, 120, 120), rgb(14, 12, 12));
   padding: 40px 20px 30px 20px;
   margin-top: 50px;
+  background-image: url(https://toolxox.com/dl/1/ist2/images/dl.beatsnoop.com-1024-1641204492.jpg);
   background-size: cover;
 }
 .start {
   justify-content: center;
+}
+input {
+  background-color: lightcyan;
 }

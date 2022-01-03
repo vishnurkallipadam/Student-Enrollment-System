@@ -2,7 +2,7 @@
   <div class="row">
 
             <div class="owl-theme">
-                 <div class="item item-third">
+                 <div class="item item-profile">
                       <div class="caption">
                            <div class="container">
                                 <div class="col-md-8 col-sm-12">
@@ -24,20 +24,11 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
-                            <img src="http://localhost:5000/images/{{student._id}}.jpg" alt=""/>
+                            <img src="http://localhost:5000/images/{{student._id}}.jpg"/><br>
+                            
                         </div>
                     </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="profile-work">
-        
-                            <p>SKILLS</p>
-                            <a>{{student.skillset}}</a><br/>
-                        
-                        </div>
-                    </div>
+               
                     <div class="col-md-8">
                         <div class="tab-content profile-tab" id="myTabContent">
                             <div>
@@ -132,6 +123,15 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <p>{{student.state}}</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Skills</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{student.skillset}}</p>
                                             </div>
                                         </div>
                                
