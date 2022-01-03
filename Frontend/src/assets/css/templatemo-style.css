@@ -431,6 +431,15 @@ section {
 .slider .item-eight {
   background-image: url(../images/login.jpg);
 }
+.slider .item-student {
+  background-image: url(../images/studentreg.jpg);
+}
+.slider .item-mark {
+  background-image: url(../images/mark.jpg);
+}
+.slider .item-profile {
+  background-image: url(../images/profile.jpg);
+}
 .slider .item-second .section-btn {
   background: #292929;
 }
@@ -459,9 +468,13 @@ section {
 }
 
 /* ---------------------------------------*/
-
+.homepage {
+  padding-bottom: -100%;
+  padding-top: -10%;
+}
 #about {
-  padding-bottom: 0;
+  padding-bottom: 100px;
+  padding-top: -10%;
 }
 .about-info {
   padding: 0 6em 5em 0;

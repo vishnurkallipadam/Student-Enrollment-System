@@ -20,7 +20,7 @@ body {
 }
 
 #generic_price_table .generic_content .generic_head_price {
-  background-color: #f6f6f6;
+  background-color: #ffffff;
 }
 
 #generic_price_table
@@ -84,7 +84,7 @@ body {
 }
 #generic_price_table .generic_content .generic_feature_list ul li:hover {
   background-color: #e4e4e4;
-  border-left: 5px solid #2ecc71;
+  border-left: 5px solid #a1d3f0;
 }
 
 #generic_price_table .generic_content .generic_price_btn a {
@@ -103,7 +103,7 @@ body {
   .generic_head_price
   .generic_head_content
   .head_bg {
-  border-color: #ad7a99 rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #b2cede;
+  border-color: #ad7a99 rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #a1d3f0;
   color: #fff;
 }
 
@@ -119,7 +119,9 @@ body {
   .generic_head_content
   .head
   span {
-  color: #fff;
+  /* color: #fff; */
+  color: BLACK;
+  font-size: 30px;
 }
 
 #generic_price_table .generic_content:hover .generic_price_btn a,
@@ -516,4 +518,8 @@ body {
   background-color: #666;
   color: #fff;
   text-decoration: none;
+}
+.course-details {
+  background-color: #fff0f5;
+  margin-bottom: -10%;
 }
