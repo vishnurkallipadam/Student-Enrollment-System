@@ -36,4 +36,19 @@ export class AuthService {
     return !!localStorage.getItem('employeetoken')
   }
 
+  getStudentToken()
+  {
+    return localStorage.getItem('studenttoken')
+  }
+
+  getAdminToken()
+  {
+    return localStorage.getItem('admintoken')
+  }
+
+  getEmployeeToken()
+  {
+    return localStorage.getItem('employeetoken')
+  }
+
 }
