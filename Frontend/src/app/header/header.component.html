@@ -27,7 +27,6 @@
          <div class="collapse navbar-collapse">
               <ul class="nav navbar-nav navbar-nav-first">
                    <li><a routerLink="home" class="smoothScroll">Home</a></li>
-                   <li><a routerLink="add-course" *ngIf="auth.adminLoggedIn()" class="smoothScroll">Add Course</a></li>
                    <li><a routerLink="courses" class="smoothScroll">Courses</a></li>
                    <li><a routerLink="students" *ngIf="auth.adminLoggedIn()||auth.employeeLoggedIn()" class="smoothScroll">All Students</a></li>
                    <li><a routerLink="employee-approval" *ngIf="auth.adminLoggedIn()" class="smoothScroll">Employee Approval</a></li>

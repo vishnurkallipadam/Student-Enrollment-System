@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 import { StudentService } from '../student.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { StudentService } from '../student.service';
 })
 export class MyprofileComponent implements OnInit {
 
-  constructor(private studentservice:StudentService,private router:Router) { }
+  constructor(private studentservice:StudentService,private router:Router,public auth:AuthService) { }
 
   student:any=[]
 
