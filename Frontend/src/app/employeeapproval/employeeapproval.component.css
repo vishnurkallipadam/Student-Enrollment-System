@@ -148,7 +148,16 @@ body {
   border-radius: 5px;
   padding: 50px;
 }
-
+@media (max-width: 600px) {
+  /* .joined-details {
+    text-align: start;
+    padding-top: 100px;
+    margin-left: -50%;
+  } */
+  .page {
+    width: 90%;
+  }
+}
 .page-header {
   margin-bottom: 20px;
 }
@@ -179,8 +188,6 @@ body {
   background-color: #4ba6c3;
   color: #fff;
 }
-
-
 
 .student-item {
   margin: 0 5px 20px 0;
@@ -217,7 +224,13 @@ body {
   float: left;
   text-align: right;
 }
-
+@media (max-width: 600px) {
+  .joined-details {
+    text-align: start;
+    padding-top: 80px;
+    margin-left: -50%;
+  }
+}
 .joined-details .date {
   margin-top: 15px;
   display: block;
