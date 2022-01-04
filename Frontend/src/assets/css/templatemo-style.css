@@ -86,7 +86,7 @@ a:focus {
 
 ::-webkit-scrollbar-thumb {
   cursor: pointer;
-  background: #000000;
+  /* background: #000000; */
 }
 
 .section-title {
