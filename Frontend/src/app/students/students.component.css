@@ -198,7 +198,6 @@ body {
   float: left;
   margin-right: 14px;
 }
-
 .student-details h3 {
   margin: 4px 0 2px 0;
   font-weight: bold;
@@ -210,13 +209,50 @@ body {
   color: #888;
   font-size: 14px;
 }
-
 .joined-details {
   width: 50%;
   float: left;
   text-align: right;
 }
+@media (max-width: 600px) {
+  .joined-details {
+    text-align: center;
+    padding-top: 190px;
+    margin-left: -55%;
+  }
+  .student-details {
+    float: left;
+  }
+  .student-details .details {
+    padding-left: 15px;
+  }
 
+  .page {
+    margin: 50px auto;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  .page .student-item .content {
+    padding-left: 110px;
+  }
+  .student-details {
+    width: 60%;
+    float: left;
+    text-align: center;
+    justify-content: center;
+  }
+  .student-details .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    float: inherit;
+    /* margin-right: 14px; */
+    text-align: center;
+    justify-content: center;
+  }
+}
 .joined-details .date {
   margin-top: 15px;
   display: block;

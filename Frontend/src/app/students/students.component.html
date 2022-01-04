@@ -11,39 +11,43 @@
                               </div>
                          </div>
                     </div>
- 
-                   
                </div>
  
      </div>
  </section>
 
 
-<div class="page">
+<div class="page container">
+     
     <div class="page-header cf">
       <h2>Students</h2>
-      <div class="form-group">
+      <div class="form-group" style="padding-top: 5%;">
        <input type="text" class="form-control mb-2" placeholder="Search" [(ngModel)]="query" id="listSearch">
      </div>
     </div>
     <ul class="student-list" *ngFor='let student of students | searchFilter: query' >
+     
       <li class="student-item cf">
-          <div class="student-details">
-               <div class="col-md-6">
-                    <img class="avatar" src="http://localhost:5000/images/{{student._id}}.jpg" >
+          <div class="content">
+               <div class="student-details">
+
+                    <div class="col-md-6">
+                         <img class="avatar" src="http://localhost:5000/images/{{student._id}}.jpg" >
+                    </div>
+
+                    <div class="col-md-6 details" style="margin-left: -16%;">
+                         <h3>{{student.name}}</h3>
+                         <span class="email">Student ID : {{student.id}}</span><br>
+                         <span class="email">{{student.email}}</span>
+                    </div>
                </div>
-               <div class="col-md-6" style="margin-left: -16%;">
-                    <h3>{{student.name}}</h3>
-                    <span class="email">Student ID : {{student.id}}</span><br>
-                    <span class="email">{{student.email}}</span>
+               <div class="joined-details">
+                    <button (click)="enterMark(student)"  *ngIf="auth.employeeLoggedIn()" class="btn btn-secondary">Mark Entry</button>
+                    <!-- <button (click)="editStudent(student)" class=" btn btn-warning">Edit</button> -->
+                    <button (click)="deleteStudent(student)" *ngIf="auth.adminLoggedIn()" class=" btn btn-danger">Delete</button>
+                    <button (click)="showStudent(student)" class=" btn btn-primary">Show Details</button>
                </div>
           </div>
-          <div class="joined-details">
-               <button (click)="enterMark(student)"  *ngIf="auth.employeeLoggedIn()" class="btn btn-secondary">Mark Entry</button>
-               <!-- <button (click)="editStudent(student)" class=" btn btn-warning">Edit</button> -->
-               <button (click)="deleteStudent(student)" *ngIf="auth.adminLoggedIn()" class=" btn btn-danger">Delete</button>
-               <button (click)="showStudent(student)" class=" btn btn-primary">Show Details</button>
-         </div>
       </li>
     </ul>
   </div>
