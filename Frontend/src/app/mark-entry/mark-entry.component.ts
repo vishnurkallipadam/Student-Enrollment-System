@@ -24,9 +24,10 @@ export class MarkEntryComponent implements OnInit {
     console.log(this.student)
     this.studentservice.exitMark(this.student)
     .subscribe(
-      response=>{
-        console.log("success");
-        this.router.navigate(['/students'])
+      (response:any)=>{
+        console.log(response);
+        localStorage.setItem('showstudents',response._id)
+        this.router.navigate(['/student'])
         
       },
       err=>{

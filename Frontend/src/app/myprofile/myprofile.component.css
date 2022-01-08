@@ -1,15 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;500&display=swap");
 
 /* new design */
-body {
+.body {
   padding: 50px 0;
   margin: 0;
   font-family: "Comfortaa", cursive;
   color: #000;
-  height: 500px;
+  height: 650px;
   background: linear-gradient(black, #603a40);
 }
-
+@media (max-width: 995px) {
+  .body {
+    height: 1100px;
+  }
+}
 .student-profile .card {
   border-radius: 10px;
   background-color: whitesmoke;

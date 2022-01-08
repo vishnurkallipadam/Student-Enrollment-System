@@ -12,6 +12,7 @@ body {
 }
 .reg {
   padding: 30px;
+  margin-left: 50px;
 }
 .wrapper {
   max-width: 500px;

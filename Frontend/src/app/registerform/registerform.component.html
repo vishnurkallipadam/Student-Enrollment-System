@@ -74,16 +74,33 @@
         
         <div class="inputfield">
           <label>Qualification</label>
-          <input type="text"  class="input form-control" formControlName='qualification' name="qualification" required>
-       </div> 
+          <!-- <input type="text"  class="input form-control" formControlName='qualification' name="qualification" required> -->
+          <div class="custom_select">
+            <select class="form-control" formControlName='qualification' name="qualification" required>
+              <option value="">Select</option>
+              <option value="Diploma">Diploma</option>
+              <option value="B.Tech">B.Tech</option>
+              <option value="M.Tech">M.Tech</option>
+              <option value="BE">BE</option>
+              <option value="ME">ME</option>
+              <option value="BSc">BSc</option>
+              <option value="MSc">MSc</option>
+              <option value="BCA">BCA</option>
+              <option value="MCA">MCA</option>
+              <option value="Others">Others</option>
+
+            </select>
+          </div>
+         </div> 
+
       <div class="inputfield">
           <label>Passout Year</label>
           <input type="number" class="input form-control" formControlName='passout' name="passout" required>
        </div> 
+
       <div class="inputfield">
           <label>Skills</label>
           <input type="text" class="input form-control" formControlName='skillset' name="skills" required>
-
        </div> 
 
        <div class="inputfield">
@@ -94,7 +111,6 @@
               <option value="employee">Employee</option>
               <option value="student">Student</option>
               <option value="self">Self Employed</option>
-
             </select>
           </div>
        </div> 

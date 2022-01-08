@@ -19,14 +19,12 @@ export class MyprofileComponent implements OnInit {
     this.studentservice.getStudent(id)
     .subscribe((data)=>{
       this.student=JSON.parse(JSON.stringify(data))
-
     })
   }
 
   updateProfile(student:any){
     localStorage.setItem('editstudent',student._id)
     this.router.navigate(['/update-student'])
-
   }
 
 }

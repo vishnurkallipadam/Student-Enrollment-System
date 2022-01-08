@@ -15,7 +15,7 @@ export class UpdateCourseComponent implements OnInit {
   course=new courseModel('','','','','','','')
   images: any;
   ngOnInit(): void {
-    let id = localStorage.getItem('showcourse')
+    let id = localStorage.getItem('editcourse')
     this.courseService.getCourse(id)
     .subscribe((data)=>{
       this.course=JSON.parse(JSON.stringify(data));

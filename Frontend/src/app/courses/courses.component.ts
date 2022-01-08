@@ -37,12 +37,17 @@ export class CoursesComponent implements OnInit {
   }
 
   deleteCourse(course:any){
-    console.log(course);
-    this.courseService.removeCourse(course._id)
-    .subscribe((data) => {
+    if(confirm("Are you sure you want to delete this course???")) {
+      
+      this.courseService.removeCourse(course._id)
+      .subscribe((data) => {
+        this.ngOnInit()
+      })
+    }else{
       this.ngOnInit()
-    })
+    }
   }
+
   editCourse(course:any){
     localStorage.setItem('editcourse',course._id)
     this.router.navigate(['update-course'])

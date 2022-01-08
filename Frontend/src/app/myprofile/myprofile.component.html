@@ -20,7 +20,7 @@
 <!-- Student Profile -->
 
 <!-- Student Profile -->
-<body>
+<div class="body">
     
 <div class="student-profile py-4">
     <div class="container">
@@ -39,11 +39,11 @@
           </div>
         </div>
         <div class="col-lg-8">
-          <div class="card shadow-sm">
+            <div class="card shadow-sm">
+              <div class="card-header bg-transparent border-0 col-md-10">
+                  <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
+              </div>
            
-                <div class="card-header bg-transparent border-0 col-md-10">
-                    <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
-                </div>
                 <div *ngIf="auth.studentLoggedIn()" class="card-header bg-transparent border-0 col-md-2">
                     
                         <div class="btn update">
@@ -96,133 +96,41 @@
                   <td>{{student.employmentStatus}}</td>
                 </tr>
                 
+                
               </table>
             </div>
           </div>
+
+          <!-- <div class="col-lg-8"> -->
+            <div class="card shadow-sm" style="padding-top: -30%;">
+             
+                  <div class="card-header bg-transparent border-0 col-md-10">
+                      <h3 class="mb-0"><i class="far fa-clone pr-1" style="padding-bottom: 20px;"></i>Academics</h3>
+                  </div>
+                 
+             
+              <div class="card-body pt-0">
+                <table class="table table-bordered">
+                  
+                  <tr>
+                      <th width="30%">Exit-exam Mark</th>
+                      <td width="2%">:</td>
+                      <td>{{student.mark}}</td>
+                    </tr>
+                  
+                </table>
+              </div>
+            </div>
+          <!-- </div> -->
+
         </div>
+
+       
+
+
       </div>
     </div>
   </div>
   
-</body>
+</div>
 
-<!-- <div class="container emp-profile">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="profile-img">
-                            <img src="http://localhost:5000/images/{{student._id}}.jpg"/><br>
-                            
-                        </div>
-                    </div>
-               
-                    <div class="col-md-8">
-                        <div class="tab-content profile-tab" id="myTabContent">
-                            <div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Student Id</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{student.id}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Name</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{student.name}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Email</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{student.email}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Phone</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{student.phone}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Employment Status</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{student.employmentStatus}}</p>
-                                            </div>
-                                        </div>
-                            </div>
-                            <div >
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Qualification</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{student.qualification}}</p>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Passout Year</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{student.passout}}</p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Technology Training</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{student.technologyTraining}}</p>
-                                    </div>
-                                </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Address</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{student.address}}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>District</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{student.district}}</p>
-                                            </div>
-                                        </div>
-                                       
-                                  
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>State</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{student.state}}</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Skills</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p>{{student.skillset}}</p>
-                                            </div>
-                                        </div>
-                               
-                            </div>
-                        </div>
-                    </div>
-                </div>         
-        </div> -->
