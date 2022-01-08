@@ -25,8 +25,7 @@ const studentSchema= new schema({
     image:String,
     courseName:String,
     mark:String
-
-
+    
 });
 
 // model

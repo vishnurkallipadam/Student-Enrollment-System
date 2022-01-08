@@ -46,10 +46,14 @@ export class StudentsComponent implements OnInit {
 
   deleteStudent(student:any){
       console.log(student);
-      this.studentService.removeStudent(student._id)
-      .subscribe((data) => {
+      if(confirm("Are you sure to delete this student??")) {
+        this.studentService.removeStudent(student._id)
+        .subscribe((data) => {
+          this.ngOnInit()
+        })
+      }else{
         this.ngOnInit()
-      })
+      }
     
   }
 

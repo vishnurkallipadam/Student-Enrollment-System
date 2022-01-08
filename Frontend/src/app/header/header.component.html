@@ -32,13 +32,14 @@
                    <li><a routerLink="employee-approval" *ngIf="auth.adminLoggedIn()" class="smoothScroll">Employee Approval</a></li>
                    <li><a routerLink="employees" *ngIf="auth.adminLoggedIn()" class="smoothScroll">Employees</a></li> 
                    <li><a routerLink="search" *ngIf="auth.adminLoggedIn()||auth.employeeLoggedIn()" class="smoothScroll">Search</a></li> 
-                   <li><a (click)="logoutUser()" data-toggle="collapse" data-target=".navbar-collapse" *ngIf="auth.adminLoggedIn()||auth.employeeLoggedIn()||auth.studentLoggedIn()" class="smoothScroll">Logout</a></li> 
+                   <li><a (click)="logoutUser()" data-toggle="collapse" data-target=".navbar-collapse" *ngIf="auth.adminLoggedIn()||auth.employeeLoggedIn()||auth.studentLoggedIn()" 
+                    class="smoothScroll" style="cursor: pointer;">Logout</a></li> 
 
               </ul>
 
               <ul  class="nav navbar-nav navbar-right " data-toggle="collapse" data-target=".navbar-collapse">
                     <li>
-                        <button *ngIf="!auth.adminLoggedIn()&&!auth.employeeLoggedIn()&&!auth.studentLoggedIn()" class="btn btn-primary login" >
+                        <button *ngIf="!auth.adminLoggedIn()&&!auth.employeeLoggedIn()&&!auth.studentLoggedIn()" class="btn btn-primary login">
                              <a  routerLink="/login/studentlogin"> LogIn </a>
                         </button>
                     </li>

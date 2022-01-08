@@ -25,6 +25,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { UpdateStudentComponent } from './update-student/update-student.component';
 import { MarkEntryComponent } from './mark-entry/mark-entry.component';
+import { AuthService } from './auth.service';
+import { CourseService } from './course.service';
+import { EmployeeService } from './employee.service';
+import { PaymentService } from './payment.service';
+import { StudentService } from './student.service';
+import { AdminguardGuard } from './adminguard.guard';
+import { EmployeeguardGuard } from './employeeguard.guard';
+import { TokenInterceptorService } from './token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -57,7 +65,12 @@ import { MarkEntryComponent } from './mark-entry/mark-entry.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthService,CourseService,EmployeeService,PaymentService,StudentService,AdminguardGuard,EmployeeguardGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

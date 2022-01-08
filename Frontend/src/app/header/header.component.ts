@@ -16,10 +16,10 @@ export class HeaderComponent implements OnInit {
 
   logoutUser(){
     localStorage.removeItem('employeetoken')
-localStorage.removeItem('admintoken')
-localStorage.removeItem('studenttoken')
+    localStorage.removeItem('admintoken')
+    localStorage.removeItem('studenttoken')
 
-this.router.navigate(['/login/studentlogin'])
+    this.router.navigate(['/login/studentlogin'])
   }
 
 }

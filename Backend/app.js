@@ -69,6 +69,37 @@ async function sendEmail(data){
     }
 }
 
+async function employeeMail(data){
+    try{
+        const accessToken=await oAuth2Client.getAccessToken()
+          let transporter = nodemailer.createTransport({
+            host: 'smtp.gmail.com',
+            secure: true,
+            auth: {
+                type: 'OAuth2',
+                user: 'creationzv@gmail.com',
+                clientId: CLIENT_ID,
+                clientSecret: CLIENT_SECRET,
+                refreshToken: REFRESH_TOKEN,
+                accessToken:accessToken
+            }
+        });
+
+          const mailOptions={
+              from:'ICT Academy Kerala <creationzv@gmail.com>',
+              to:data,
+              subject:'Employee Registered Successfully',
+              text:'Your request for employee registration has been approved by Admin. You can login with the credentials entered at the time of registration' 
+          }
+
+          const result =  await transporter.sendMail(mailOptions)
+          return result
+
+    }catch(error){
+        return error
+    }
+}
+
 let verify=false;
 
 function verifyEmployeeToken(req, res) {
@@ -80,7 +111,6 @@ function verifyEmployeeToken(req, res) {
         return res.status(401).send('Unauthorized request5')    
       }
       let payload = jwt.verify(token, 'employeeKey')
-      console.log(payload);
       if(!payload) {
         return res.status(401).send('Unauthorized request6')    
       }
@@ -97,7 +127,6 @@ function verifyEmployeeToken(req, res) {
       return res.status(401).send('Unauthorized request5')    
     }
     let payload = jwt.verify(token, 'adminKey')
-    console.log(payload);
     if(!payload) {
       return res.status(401).send('Unauthorized request6')    
     }
@@ -433,7 +462,12 @@ app.post('/approve-employee',verifyAdminToken,(req,res)=>{
         {
             $set: { 'status': 'approved'} 
         }).then((data)=>{
-            res.send();
+            employeeData.findOne({_id:req.body.id},function(err,employee){ 
+                employeeMail(employee.email).then((response)=>{
+                    console.log(response);
+                    res.send();
+                })
+            })
         })
 })
 
